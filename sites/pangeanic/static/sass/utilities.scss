@@ -1,0 +1,62 @@
+.txt-negro {
+    color: $negro;
+}
+
+.txt-naranja {
+    color: $naranja;
+}
+
+.txt-oscuro {
+    color: $oscuro;
+}
+
+.txt-blanco {
+    color: $blanco;
+}
+
+.txt-gris {
+    color: $gris4;
+}
+
+.txt-gris-oscuro {
+    color: $gris;
+}
+
+.txt-gris-oscuro-2 {
+    color: $gris6;
+}
+
+.txt-align-center {
+    text-align: center;
+    ul {
+        margin: 0 auto;
+    }
+}
+
+.txt-align-left {
+    text-align: left;
+}
+
+.txt-align-right {
+    text-align: right;
+}
+
+.font-abril-display-reg {
+    font-family: $abril-display-regular;
+}
+
+.font-abril-display-bold {
+    font-family: $abril-display-bold;
+}
+
+.font-abril-text-bold {
+    font-family: $abril-text-bold;
+}
+
+@include bg-utility('turquesa',$turquesa);
+@include bg-utility('blanco',$blanco);
+@include bg-utility('turquesa-oscuro',$turquesa-oscuro);
+@include bg-utility('gris',$gris3);
+@include bg-utility('naranja',$naranja, $blanco);
+@include bg-utility('oscuro',$oscuro);
+

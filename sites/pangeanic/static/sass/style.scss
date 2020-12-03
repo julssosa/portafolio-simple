@@ -1,0 +1,255 @@
+// Import
+@import "00_variables";
+@import "00_mixins";
+@import "00_normalize";
+@import "lib/lightslider.min";
+@import "lib/owl.carousel.min";
+
+
+// Fuentes
+@include font-otf($museosans-100, $normal, $thin);
+@include font-otf($museosans-300, $normal, $light);
+@include font-otf($museosans-500, $normal, $regular);
+@include font-otf($museosans-300-italic, $italic, $light);
+@include font-otf($museosans-500-italic, $italic, $light);
+@include font-otf($museosans-700, $normal, $bold);
+@include font-otf($newjune-light, $normal, $light);
+@include font-otf($abril-display-bold, $normal, $bold);
+@include font-otf($abril-display-regular, $normal, $regular);
+@include font-otf($abril-text-bold, $normal, $bold);
+@include font-otf($abril-text-regular, $normal, $regular);
+
+
+// Globales
+
+// Reset button
+
+button {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+
+    background: transparent;
+
+    /* inherit font & color from ancestor */
+    color: inherit;
+    font: inherit;
+
+    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+    line-height: normal;
+
+    /* Corrects font smoothing for webkit */
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+
+    /* Corrects inability to style clickable `input` types in iOS */
+    -webkit-appearance: none;
+
+    /* Remove blue border in Chrome */
+    &:focus {
+        outline: 0;
+    }
+
+    /* Remove excess padding and border in Firefox 4+ */
+    &::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    // font-family: $museosans-500;
+    // font-weight: 500;
+    font-family: aileron, sans-serif;
+    font-weight: 300;
+    background: $blanco;
+    font-size: 20px;
+    color: $negro;
+    line-height: 1.2;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'kern';
+    font-kerning: normal;
+    text-rendering: optimizeLegibility;
+    font-variant-ligatures: common-ligatures;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    overflow-x: hidden;
+}
+
+.main {
+    padding: 120px 0 0 0;
+    margin: -$margin*2 0 0 0;
+    z-index: $elements;
+    min-height: 100vh;
+}
+
+strong {
+    font-weight: $bold;
+}
+
+p {
+    font-size: 20px;
+    // font-family: $museosans-500;
+    // font-weight: 100;
+    font-family: aileron, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+
+h1 {
+    font-family: $abril-display-bold;
+    font-size: 60px;
+    line-height: 1.1;
+}
+
+h3,h4 {
+    font-family: $museosans-700;
+}
+
+h2 {
+    font-family: $abril-display-regular;
+    font-size: 42px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+h4 {
+    font-size: 28px;
+}
+
+h5 {
+    font-family: $museosans-300;
+    font-size: 26px;
+}
+
+h6 {
+    font-size: 24px;
+}
+
+
+a:not(.btn) {
+    text-decoration: none;
+    color: $naranja;
+    // opacity: 1;
+    @include transition($transition-duration);
+    &:hover {
+        filter: brightness(0.8);
+        opacity: 0.8;
+    }
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+ul {
+    padding: 0;
+    margin: $margin/2 0;    
+}
+
+ul:not([class]),
+ul[class=""] { /* every ul without class or empty class */
+    padding-inline-start: $padding;
+  }
+  
+
+/* Containers */
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1050px;
+
+    &.container-lrg {
+        max-width: 1200px;
+    }
+}
+
+.wrapper {
+    width: 100%;
+    position: relative;
+}
+
+pre {
+    white-space: normal;
+    &.heading {
+        font-size: 35px;
+        text-align: center;
+        border: 1px solid $gris;
+        border-style: dashed;
+        padding: $padding 0;
+        margin: $margin*4 0 $margin*2 0;
+    }
+}
+
+// Responsive-1280px
+@include max-width($desktop){
+    
+}
+// Responsive-992px
+@include min-width($small-desktop){
+    main {
+        .bloque:first-child {
+            padding-top: 140px;
+            &.entrada-header {
+                padding-top: 30px;
+            }
+        }
+    }
+}
+@include max-width($small-desktop){
+    .main {
+        margin: 0;
+        padding: 70px 0 0 0;
+    }
+}
+// Responsive-768px
+@include max-width($tablet){
+}
+// Responsive-576px
+@include max-width($movil){
+    h1 {
+        font-size: 2em;
+    }
+    
+    h2 {
+        font-size: 1.7em;
+    }
+    
+    h3 {
+        font-size: 1.5em;
+    }
+}
+
+
+/* Import */
+@import "bloques";
+@import "header";
+@import "footer";
+@import "components";
+@import "utilities";
+
+

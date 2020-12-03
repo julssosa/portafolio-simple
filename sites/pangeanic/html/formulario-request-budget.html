@@ -1,0 +1,148 @@
+<!-- Pegar y copiar en caja contact form en Backend de Wordpress, Plugin Contact Form 7 -->
+
+[progressbar id:line class:bullets type:line]
+
+
+<div class="form-multistep__steps-container request-translation__steps">
+    [step_start id:step-1 class:step "Upload content"]
+    <div class="form-multistep__step-container">
+        <div class="form-multistep__row form-multistep__2-elements-row">
+            <div class="form-multistep__form-element">
+                <label> Translate from</label>
+                <span class="select">[select translate-from]</span>
+            </div>
+            <div class="form-multistep__form-element">
+                <label> Translate to </label>
+                <span class="select">[select translate-to]</span>
+            </div>
+        </div>
+        <div class="form-multistep__row">
+            <div class="form-multistep__form-element">
+                <label> Upload a file </label>
+                <span class="form-upload">
+                    [file upload-file]
+                </span>
+            </div>
+        </div>
+        <div class="form-multistep__row form-multistep__1-element-fullwidth-row">
+            <div class="form-multistep__form-element">
+                <label> or add a url </label>
+                <span class="input-text">[text add-url placeholder "http://"]</span>
+            </div>
+        </div>
+        <div class="form-multistep__row form-multistep__1-element-fullwidth-row">
+            <div class="form-multistep__form-element">
+                <label>Escribe más detalles sobre tu solicitud</label>
+                <div class="textarea">
+                    [textarea mas-informacion]
+                </div>
+            </div>
+        </div>
+        <div class="form-multistep__row form-multistep__1-btn-row">
+            <div class="form-multistep__form-element">
+                [next id:step-1-next class:step-next class:btn class:btn-flecha class:btn-flecha-blanco-bg-naranja
+                "Next"]
+            </div>
+        </div>
+    </div>
+    [step_finish]
+
+
+[step_start id:step-2 class:step "type of translation"]
+    <div class="form-multistep__step-container">
+        <div class="form-multistep__row form-multistep__1-element-fullwidth-row">
+            <div class="form-multistep__form-element">
+                <label>Type of translation</label>
+                <span class="checkbox-group">
+                    [checkbox type "Fast" "Standard" "Premium" "Proofreading"]
+                </span>
+            </div>
+        </div>
+        <div class="form-multistep__row form-multistep__2-elements-row">
+            <div class="form-multistep__form-element">
+                <label>Field</label>
+                <div class="select">
+                    [select asunto include_blank "Computer" "Science" "Medical"]
+                </div>
+            </div>
+            <div class="form-multistep__form-element">
+                <label>Fecha Entrega</label>
+                <div class="datepicker">[date fecha-entrega]</div>
+            </div>
+        </div>
+        <div class="form-multistep__row form-multistep__1-element-fullwidth-row">
+            <div class="form-multistep__form-element">
+                <label>Escribe más detalles sobre tu solicitud</label>
+                <div class="textarea">
+                    [textarea mas-informacion]
+                </div>
+            </div>
+        </div>
+        <div class="form-multistep__row form-multistep__2-btn-row">
+            <div class="form-multistep__form-element">
+                [prev id:previous-1 class:previous class:btn class:btn-flecha class:btn-flecha-blanco-bg-naranja
+                class:btn-flecha-izq "Previous"]</div>
+            <div class="form-multistep__form-element">[next id:step-2-next class:step-next class:btn
+                class:btn-flecha class:btn-flecha-blanco-bg-naranja "Next"]</div>
+</div>
+</div>
+[step_finish]
+
+
+
+[step_start id:step-3 class:step "Personal data"]
+    <div class="form-multistep__step-container">
+        <div class="form-multistep__row form-multistep__2-elements-row">
+            <div class="form-multistep__form-element">
+                <label>Nombre</label>
+                <span class="input-text">[text* name placeholder "name"]</span>
+            </div>
+            <div class="form-multistep__form-element">
+                <label>Surname</label>
+                <span class="input-text">[text* surname placeholder "surname"]</span>
+            </div>
+        </div>
+        <div class="form-multistep__row form-multistep__2-elements-row">
+            <div class="form-multistep__form-element">
+                <label>Email</label>
+                <span class="input-text">[email* email placeholder "email"]</span>
+            </div>
+            <div class="form-multistep__form-element">
+                <label>Teléfono</label>
+                <span class="input-text">[tel* phone placeholder "phone"]</span>
+            </div>
+        </div>
+        <div class="form-multistep__row form-multistep__2-elements-row">
+            <div class="form-multistep__form-element">
+                <label>Position</label>
+                <span class="input-text">[text* position placeholder "position"]</span>
+            </div>
+            <div class="form-multistep__form-element">
+                <label>Compañia</label>
+                <span class="input-text">[text* company placeholder "company"]</span>
+            </div>
+        </div>
+        <div class="form-multistep__row form-multistep__2-elements-row">
+            <div class="form-multistep__form-element">
+                <label>City</label>
+                <span class="input-text">[text* city placeholder "city"]</span></div>
+            <div class="form-multistep__form-element">
+                <label>País</label>
+                <span class="input-text">[text* country placeholder "country"]</span></div>
+        </div>
+
+        <div class="form-multistep__row form-multistep__2-btn-row">
+            <div class="form-multistep__form-element">[prev id:previous-1 class:previous class:btn class:btn-flecha
+                class:btn-flecha-blanco-bg-naranja class:btn-flecha-izq "Previous"]</div>
+            <div class="form-multistep__form-element btn btn-flecha btn-flecha-blanco-bg-naranja">[submit "Next"]
+            </div>
+        </div>
+    </div>
+[step_finish]
+
+[step_start id:step-4 class:step "Confirm"]
+    <div class="form-multistep__step-container txt-align-center">
+        <h2>Gracias por su solicitud.</h2>
+    </div>
+[step_finish]
+</div>

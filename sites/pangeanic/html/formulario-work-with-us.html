@@ -1,0 +1,368 @@
+<!-- Pegar y copiar en caja contact form en Backend de Wordpress, Plugin Contact Form 7 -->
+
+[progressbar]
+
+<div class="form-multistep__steps-container work-with-us__steps">
+
+[step_start id:step-1 class:step "Personal information"]
+<div class="form-multistep__step-container">
+
+<div class="form-multistep__row form-multistep__2-elements-row">
+    
+<div class="form-multistep__form-element">
+    <label> Name* </label>
+    <span class="input-text">[text* your-name placeholder "name"]</span>
+</div>
+<div class="form-multistep__form-element">
+    <label> Surname* </label>
+    <span class="input-text">[text* your-surname placeholder "surname"]</span>
+</div>
+</div>
+<div class="form-multistep__row form-multistep__2-elements-row">
+<div class="form-multistep__form-element">
+    <label> Mother tongue*</label>
+    <span class="select">[select* mother-tongue]</span>
+</div>
+</div>
+<div class="form-multistep__row form-multistep__1-element-fullwidth-row">
+<div class="form-multistep__form-element">
+    <label> Street Address*</label>
+    <span class="input-text">[text* street-address]</span>
+</div>
+</div>
+<div class="form-multistep__row form-multistep__2-elements-row">
+<div class="form-multistep__form-element">
+    <label>City*</label>
+    <span class="input-text">[text* street-address]</span>
+</div>
+<div class="form-multistep__form-element">
+    <label>State*</label>
+    <span class="input-text">[text* state]</span>
+</div>
+</div>
+<div class="form-multistep__row form-multistep__2-elements-row">
+<div class="form-multistep__form-element">
+    <label> Country*</label>
+    <span class="select">[select* country include_blank] </span>
+</div>
+<div class="form-multistep__form-element">
+    <label> Email*</label>
+    <span class="input-text">[email* email] </span>
+</div>
+</div>
+<div class="form-multistep__row form-multistep__1-element-fullwidth-row">
+<div class="form-multistep__form-element">
+<label> Website </label>
+<span class="input-text">[url website]</span>
+</div>
+</div>
+<div class="form-multistep__row">
+<div class="form-multistep__form-element form-element__sml-label">
+  <label>Curriculum Vitae [Include a list of translation jobs] (CV_name.pdf)</label>
+  <span class="form-upload">[file* curriculum filetypes:pdf]</span>
+  </div>
+</div>
+<div class="form-multistep__row">
+<div class="form-multistep__form-element form-element__sml-label">
+    <label><b>Processing of Personal Data* </b></label>
+[acceptance acceptance-personal-data class:form-element__acceptance] I allow Pangeanic to process my personal data for the purpose of being
+considered a freelance linguist [/acceptance]
+</div>
+</div>
+<div class="form-multistep__row form-multistep__1-btn-row ">
+<div class="form-multistep__form-element">
+[next id:step-0-next class:step-next class:btn class:btn-flecha class:btn-flecha-blanco-bg-naranja "Next"]
+</div>
+</div>
+</div>
+[step_finish]
+
+
+[step_start id:step-2 class:step "Work experience"]
+<div class="form-multistep__step-container">
+<div class="form-multistep__row form-multistep__1-element-fullwidth-row">
+<div class="form-multistep__form-element">
+    <label> Experience with CAT tools (Preferred SDL Trados Studio)* </label>
+<div class="textarea">
+    [textarea* experience_cat_tools]
+</div>
+</div>
+</div>
+<div class="form-multistep__row form-multistep__1-element-fullwidth-row">
+<div class="form-multistep__form-element">
+<label> MT Post Editing Work Experience </label>
+<div class="textarea">
+[textarea experience_post_editing]
+</div>
+</div>
+</div>
+<div class="form-multistep__row form-multistep__2-btn-row">
+<div class="form-multistep__form-element">
+[prev id:previous-1 class:previous class:btn class:btn-flecha class:btn-flecha-blanco-bg-naranja
+class:btn-flecha-izq  "Previous"]
+</div>
+<div class="form-multistep__form-element">
+[next id:step-1-next class:step-next class:step-next class:btn
+class:btn-flecha class:btn-flecha-blanco-bg-naranja "Next"]
+</div>
+</div>
+</div>
+  [step_finish]
+
+
+[step_start id:step-3 class:step "Education and training"]
+<div class="form-multistep__step-container">
+<div class="form-multistep__group">    
+<div class="form-multistep__row form-multistep__2-elements-row">
+<div class="form-multistep__form-element">
+<label> From </label>
+<div class="datepicker">[date from]</div>
+</div>
+<div class="form-multistep__form-element">
+<label> To </label>
+<div class="datepicker">[date to]</div>
+</div>
+</div>
+<div class="form-multistep__row">
+<div class="form-multistep__form-element form-element__sml-label">
+<label> [checkbox ongoing "Ongoing"]</label>
+</div>
+</div>
+<div class="form-multistep__row">
+<h4 class="txt-naranja">
+Organisation providing education and training
+</h4>
+</div>
+<div class="form-multistep__row form-multistep__1-element-fullwidth-row">
+<div class="form-multistep__form-element">
+<label> Name </label>
+<span class="input-text">[text organization-name]</span>
+</div>
+</div>
+<div class="form-multistep__row form-multistep__1-element-fullwidth-row">
+<div class="form-multistep__form-element">
+  <label>Title of qualification awarded </label>
+  <span class="input-text">[text qualification-awarded]</span>
+</div>
+</div>
+<div class="form-multistep__row form-multistep__2-elements-row">
+<div class="form-multistep__form-element">
+<label> City </label>
+<span class="input-text">[text organization-city]</span>
+</div>
+<div class="form-multistep__form-element">
+<label> Country </label>
+<span class="select">[select organization-country include_blank]</span>
+</div>
+</div>
+<div class="form-multistep__row form-multistep__2-elements-row">
+<div class="form-multistep__form-element">
+<label> Level </label>
+<span class="select">
+[select organization-level include_blank "High School" "Associate Degree" "Bachelor's Degree" "Graduate of
+Professional Degree" "Some College" "Other" "Prefer Not to Answer"]
+</span>
+</div>
+</div>
+<div class="form-multistep__row form-multistep__1-element-fullwidth-row">
+<div class="form-multistep__form-element">
+<label> Principal subjects / occupational skills covered </label>
+<div class="textarea">
+[textarea principal-subjects]
+</div>
+</div>
+</div>
+</div>
+<div class="form-multistep__row">
+<div class="form-multistep__form-element">
+<label>Do you want to add more formation?</label>
+[radio more-information default:2 "Yes" "No"]
+</div>
+</div>
+
+
+<div class="form-multistep__group">     
+[group more-education clear_on_hide inline]
+ <div class="form-multistep__row form-multistep__2-elements-row">
+<div class="form-multistep__form-element">
+<label> From </label>
+<div class="datepicker">[date from-2]</div>
+</div>
+<div class="form-multistep__form-element">
+<label> To </label>
+<div class="datepicker">[date to-2]</div>
+</div>
+</div>
+<div class="form-multistep__row">
+<div class="form-multistep__form-element form-element__sml-label">
+<label> [checkbox ongoing-2 "Ongoing"]</label>
+</div>
+</div>
+<div class="form-multistep__row">
+<h4 class="txt-naranja">
+    Organisation providing education and training
+</h4>
+</div>
+<div class="form-multistep__row form-multistep__1-element-fullwidth-row">
+<div class="form-multistep__form-element">
+<label> Name </label>
+<span class="input-text">[text organization-name-2]</span>
+</div>
+</div>
+<div class="form-multistep__row form-multistep__1-element-fullwidth-row">
+<div class="form-multistep__form-element">
+<label> Title of qualification awarded </label>
+<span class="input-text">[text qualification-awarded-2]</span>
+</div>
+</div>
+<div class="form-multistep__row form-multistep__2-elements-row">
+<div class="form-multistep__form-element">
+<label> City </label>
+<span class="input-text">[text organization-city-2]</span>
+</div>
+<div class="form-multistep__form-element">
+<label> Country </label>
+<span class="select">[select organization-country-2]</span>
+</div>
+</div>
+<div class="form-multistep__row form-multistep__2-elements-row">
+<div class="form-multistep__form-element">
+<label> Level </label>
+<span class="select">
+[select organization-level-2 include_blank "High School" "Associate Degree" "Bachelor's Degree" "Graduate of
+Professional Degree" "Some College" "Other" "Prefer Not to Answer"]
+</span>
+</div>
+</div>
+<div class="form-multistep__row form-multistep__1-element-fullwidth-row">
+<div class="form-multistep__form-element">
+<label> Principal subjects / occupational skills covered </label>
+<div class="textarea">
+[textarea principal-subjects-2]
+</div>
+</div>
+</div>
+[/group]
+</div>
+<div class="form-multistep__row form-multistep__2-btn-row">
+<div class="form-multistep__form-element">
+[prev id:previous-2 class:previous class:btn class:btn-flecha class:btn-flecha-blanco-bg-naranja
+class:btn-flecha-izq "Previous"]
+</div>
+<div class="form-multistep__form-element">
+[next id:step-2-next class:step-next class:btn
+class:btn-flecha class:btn-flecha-blanco-bg-naranja "Next"]
+</div>
+</div>
+</div>
+[step_finish]
+
+
+
+[step_start id:step-4 class:step "Personal skills"]
+<div class="form-multistep__step-container">
+<div class="form-multistep__row">
+    <h5>Other language(s) *</h5>
+</div>
+<div class="form-multistep__row">
+<div class="form-multistep__form-element">
+<span class="select">[select* other-languages-1 include_blank]</span>
+</div>
+</div>
+<div class="form-multistep__group">
+[group other-languages-1 clear_on_hide inline]
+<div class="form-multistep__row form-multistep__2-elements-row">
+<div class="form-multistep__form-element">
+<label> Listening </label>
+<span class="select">[select listening-1 include_blank "A1 (Basic User)" "A2  (Basic User)" "B1 (Independent User)" "B2  (Independent User)" "C1 (Proficient User)" "C2  (Proficient User)"]</span>
+</div>
+<div class="form-multistep__form-element">
+    <label> Reading* </label>
+    <span class="select">[select* reading-1 include_blank "A1 (Basic User)" "A2  (Basic User)" "B1 (Independent User)" "B2  (Independent User)" "C1 (Proficient User)" "C2  (Proficient User)"]</span>
+</div>
+</div>
+<div class="form-multistep__row form-multistep__2-elements-row">
+<div class="form-multistep__form-element">
+<label> Spoken interaction </label>
+<span class="select">[select spoken-interaction-1 include_blank "A1 (Basic User)" "A2  (Basic User)" "B1 (Independent User)" "B2  (Independent User)" "C1 (Proficient User)" "C2  (Proficient User)"]</span>
+</div>
+<div class="form-multistep__form-element">
+<label> Spoken production </label>
+<span class="select">[select spoken-production-1 include_blank "A1 (Basic User)" "A2  (Basic User)" "B1 (Independent User)" "B2  (Independent User)" "C1 (Proficient User)" "C2  (Proficient User)"]</span>
+</div>
+</div>
+<div class="form-multistep__row form-multistep__2-elements-row">
+<div class="form-multistep__form-element">
+<label> Writing </label>
+<span class="select">[select writing-1 include_blank "A1 (Basic User)" "A2  (Basic User)" "B1 (Independent User)" "B2  (Independent User)" "C1 (Proficient User)" "C2  (Proficient User)"]</span>
+</div>
+</div>
+<div class="form-multistep__form-row">
+    <h5>Other language(s)</h5>
+</div>
+<div class="form-multistep__row">
+<div class="form-multistep__form-element">
+<span class="select">[select other-languages-2 include_blank] </span>
+</div>
+</div>
+[/group]
+</div>
+
+<div class="form-multistep__group">
+[group other-languages-2 clear_on_hide inline]
+<div class="form-multistep__row form-multistep__2-elements-row">
+<div class="form-multistep__form-element">
+<label> Listening </label>
+<span class="select">[select listening-2 include_blank "A1 (Basic User)" "A2  (Basic User)" "B1 (Independent User)" "B2  (Independent User)" "C1 (Proficient User)" "C2  (Proficient User)"]</span>
+</div>
+<div class="form-multistep__form-element">
+    <label> Reading</label>
+    <span class="select">[select reading-2 include_blank "A1 (Basic User)" "A2  (Basic User)" "B1 (Independent User)" "B2  (Independent User)" "C1 (Proficient User)" "C2  (Proficient User)"]</span>
+</div>
+</div>
+<div class="form-multistep__row form-multistep__2-elements-row">
+<div class="form-multistep__form-element">
+<label> Spoken interaction </label>
+<span class="select">[select spoken-interaction-2 include_blank "A1 (Basic User)" "A2  (Basic User)" "B1 (Independent User)" "B2  (Independent User)" "C1 (Proficient User)" "C2  (Proficient User)"]</span>
+</div>
+<div class="form-multistep__form-element">
+<label> Spoken production </label>
+<span class="select">[select spoken-production-2 include_blank "A1 (Basic User)" "A2  (Basic User)" "B1 (Independent User)" "B2  (Independent User)" "C1 (Proficient User)" "C2  (Proficient User)"]</span>
+</div>
+</div>
+<div class="form-multistep__row form-multistep__2-elements-row">
+    <div class="form-multistep__form-element">
+    <label> Writing </label>
+    <span class="select">[select writing-2 include_blank "A1 (Basic User)" "A2  (Basic User)" "B1 (Independent User)" "B2  (Independent User)" "C1 (Proficient User)" "C2  (Proficient User)"]</span>
+    </div>
+</div>
+[/group]
+</div>
+
+<div class="form-multistep__row form-multistep__1-element-fullwidth-row">
+<div class="form-multistep__form-element">
+<label> Post editing-related skills & additional information </label>
+<div class="textarea">
+[textarea editing-related-skills]
+</div>
+</div>
+</div>
+<div class="form-multistep__row">
+<div class="form-multistep__form-element">
+[acceptance acceptance-terms class:form-element__acceptance]  I hereby confirm that I have read and accept Pangeanic's confidentiality agreement and Terms and Conditionst [/acceptance]
+</div>
+</div>
+<div class="form-multistep__row form-multistep__2-btn-row">
+<div class="form-multistep__form-element">
+[prev id:previous-3 class:previous class:btn class:btn-flecha class:btn-flecha-blanco-bg-naranja
+class:btn-flecha-izq "Previous"]
+</div>
+<div class="form-multistep__form-element">
+[submit class:btn
+class:btn-flecha class:btn-flecha-blanco-bg-naranja  "Send"]
+</div>
+</div>
+</div>
+[step_finish]
+
+</div>
