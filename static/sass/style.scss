@@ -1,0 +1,112 @@
+// Imports previos
+@import "00_variables";
+@import "00_mixins";
+@import "00_normalize";
+@import "00_lib";
+
+
+// Fuentes
+// @include font-ttf($aktiv-light, $normal, $light);
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
+
+// Optimizacion rendering
+body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'kern';
+    font-family: 'Source Sans Pro', sans-serif;
+    font-kerning: normal;
+    text-rendering: optimizeLegibility;
+    font-variant-ligatures: common-ligatures;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    overflow-x: hidden;
+}
+
+// Globales
+html {box-sizing: border-box;}
+*, *:before, *:after {box-sizing: inherit;}
+
+.window-wrapper {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.scroll-area {
+    
+}
+
+.content-wrapper {
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+    
+}
+
+h1 {
+    font-size: 15vw;    
+}
+
+h2 {
+    font-size: 4.45vw;
+    font-weight: normal;
+}
+
+h4 {
+    font-size: 36px;
+}
+
+p {
+    font-size: 1.7em;
+}
+
+a {
+    text-decoration: none;
+    color: unset;
+    
+    &.anchor-classic {
+        text-decoration: underline;
+        font-weight: bold;
+    }
+}
+
+
+
+ul {
+    list-style: none;
+}
+
+.txt-tachado {
+    text-decoration: line-through;
+}
+
+
+
+// Responsive-1280px
+@include max-width($desktop){
+}
+// Responsive-992px
+@include max-width($small-desktop){
+}
+// Responsive-768px
+@include max-width($tablet){
+}
+// Responsive-576px
+@include max-width($movil){
+}
+
+
+// Imports posteriores
+@import "header";
+@import "menu";
+@import "sections";

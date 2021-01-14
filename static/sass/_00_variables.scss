@@ -1,0 +1,43 @@
+// Grid
+$desktop: 1280px;
+$small-desktop: 992px;
+$tablet: 768px;
+$movil: 576px;
+
+
+// Colors
+$blanco: #FFFFFF;
+$negro: #000000;
+$pollito: #FFF500;
+$azul: #2A19FF;
+$rojo: #FF0000;
+$royal: #9F62DF;
+
+// Fonts
+// $aktiv-light:'AktivGrotesk_Lt';
+
+
+// Font style
+$normal: normal;
+$italic: italic;
+
+// Font weights
+$thin: 100;
+$extralight: 200;
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semibold: 600;
+$bold: 700;
+$extrabold: 800;
+$black: 900;
+
+// Transition duration
+$transition-duration: .3s;
+
+// Opacity
+$opacity-hover: .5;
+
+// Padding - Margin
+$padding: 30px;
+$margin: $padding;

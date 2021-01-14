@@ -1,0 +1,120 @@
+// Fuente personalizada
+@mixin font-ttf($font-file-name, $style, $weight) {
+  $font-file-path: 'static/fonts/' + $font-file-name;
+  @font-face{
+    font-family: $font-file-name;
+    font-style: $style;
+    font-weight: $weight;
+    src:url($font-file-path + '.ttf') format('truetype');
+  }
+}
+@mixin font-otf($font-file-name, $style, $weight) {
+  $font-file-path: 'static/fonts/' + $font-file-name;
+  @font-face{
+    font-family: $font-file-name;
+    font-style: $style;
+    font-weight: $weight;
+    src:url($font-file-path + '.otf') format('opentype');
+  }
+}
+@mixin font-woff($font-file-name, $style, $weight) {
+  $font-file-path: 'static/fonts/' + $font-file-name;
+  @font-face{
+    font-family: $font-file-name;
+    font-style: $style;
+    font-weight: $weight;
+    src:url($font-file-path + '.woff') format('woff');
+  }
+}
+
+// Responsive
+@mixin max-width($screen-size) {
+  @media only screen and (max-width: $screen-size) {
+    @content;
+  }
+}
+@mixin min-width($screen-size) {
+  @media only screen and (min-width: $screen-size) {
+    @content;
+  }
+}
+@mixin max-height($screen-size) {
+  @media only screen and (max-height: $screen-size) {
+    @content;
+  }
+}
+@mixin min-height($screen-size) {
+  @media only screen and (min-height: $screen-size) {
+    @content;
+  }
+}
+
+// Transición
+@mixin transition($animation-duration) {
+  -webkit-transition: all $animation-duration ease-in-out;
+  -o-transition: all $animation-duration ease-in-out;
+  -moz-transition: all $animation-duration ease-in-out;
+  -ms-transition: all $animation-duration ease-in-out;
+  transition: all $animation-duration ease-in-out;
+}
+
+// Reset marging and padding
+@mixin reset {
+  margin: 0;
+  padding: 0;
+}
+
+// hamburger menu
+@mixin hamburger($color, $width){
+  width: $width;
+  height: 20px;
+  position: relative;
+  align-items: center;
+  cursor: pointer;
+  @include transition ($transition-duration);
+  &:hover{
+    opacity: $opacity-hover;
+  }
+  span{
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    right: 0;
+    background-color: $color;
+    @include transition ($transition-duration);
+    &:nth-of-type(1){
+      top: 0;
+    }
+    &:nth-of-type(2),
+    &:nth-of-type(3){
+      top: calc(50% - 1px);
+    }
+    &:nth-of-type(4){
+      bottom: 0;
+    }
+  }
+  &.active{
+    span{
+      &:nth-of-type(1),
+      &:nth-of-type(4){
+        opacity: 0;
+      }
+      &:nth-of-type(2){
+        transform: rotate(45deg);
+      }
+      &:nth-of-type(3){
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
+
+// Colores en hover
+@mixin hover-colors($bg-color, $text-color, $border-color:"") {
+  &:hover {
+    background-color: $bg-color;
+    color: $text-color;
+    border: 1px solid $border-color;
+  }
+}

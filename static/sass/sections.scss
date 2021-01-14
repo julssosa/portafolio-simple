@@ -1,0 +1,209 @@
+.section {
+    &--wrapper {
+        min-width: 100vw;
+        min-height: 100vh;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    &--content-container {
+        padding: $padding*2 $padding*4;
+        width: 100%;
+        
+    }
+    
+    &--background-container,
+    &--overlay-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    &--background-container {
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+    }
+
+    &--overlay-container {
+        z-index: 10;
+    }
+}
+
+.the-section {
+   
+    &--landing {
+        display: flex;
+        align-items: center; 
+        
+        &-bouncy {
+            > div {
+                img {
+                    width: 227px;
+                    height: auto;
+                }
+            }
+        }
+
+    }
+
+    &--who-am-i {
+        display: flex;
+        align-items: center; 
+        
+
+        &--lluvia {
+            background: $pollito;
+            width: 100%;
+            height: 100%;    
+            
+            &-nrml {
+                img {
+                    mix-blend-mode: normal;
+                }
+            }
+
+            &-scrn {
+                img {
+                    mix-blend-mode: screen;
+                }
+            }
+        }
+      
+        .txt-tachado {
+            position: relative;
+            &:after {
+                content: 'Is it crass to
+                say you do things
+                for money?';
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: $padding/2;
+                width: 165px;
+                height: 82px;
+                font-size: 12px;
+                font-family:'Courier New', Courier, monospace;
+                background: $pollito;
+                position: absolute;
+                color: $blanco;
+                top: -50px;
+                left: 15px;
+                opacity: 0;
+                transform: rotate3d(1, 1, 1, 105deg);
+                @include transition($transition-duration);
+            }
+            &:hover {
+                &:after {
+                    background: $negro;
+                    opacity: 1;
+                    transform: rotate3d(1, 1, 1,0deg);
+                    cursor: help;
+                }
+            }
+        }
+
+    }
+
+    &--work {
+        display: flex;
+        align-items: center; 
+        color: $rojo;
+
+        &-list {
+            
+            .artprj-link {
+                position: relative;
+                z-index: 5;
+                &:after {
+                    content:'';
+                    display: block;
+                    width: 390px;
+                    height: 270px;
+                    left: -10%;
+                    top: -100px;
+                    opacity: 0;
+                    background-image: url('static/assets/empty-frame.png');
+                    background-position: center;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    position: absolute;
+                    transform: scale(0);
+                    @include transition($transition-duration);
+                }
+
+                &:hover {
+                    &:after {
+                        opacity: 1;
+                        transform: scale(1);
+                    }
+                }
+            }
+            
+            .musicprj-link {
+                position: relative;
+                
+                &:after {
+                    content:'';
+                    display: block;
+                    width: 25vw;
+                    height: 65vh;
+                    left: 40%;
+                    bottom: -50%;
+                    opacity: 0;
+                    background-image: url('static/assets/me-dj.gif');
+                    background-position: center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    position: absolute;
+                }
+
+                &:hover {
+                    &:after {
+                        opacity: 1;
+                    }
+                }
+                
+            }
+        }
+        
+    }
+
+    &--contact {
+        display: flex;
+        align-items: center; 
+        background: $azul;
+        color: $blanco;
+
+        &-social {
+            display: flex;
+            padding: 0;
+            margin: $margin 0;
+            
+            li {
+                margin: 0 $margin/2 0 0;
+            }
+
+        }
+    }
+
+    &--web-projects {
+        background: $royal;
+        color: $blanco;
+    }
+
+    &--music-projects {
+        h2 {
+            margin: 0 0 $margin/2 0;
+        }
+        p {
+            margin: 0;
+        }
+
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
