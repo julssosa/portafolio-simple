@@ -4,7 +4,9 @@
   "description": "Gulp tasks",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "gulp"
+    "test": "gulp",
+    "dev": "parcel src/index.html",
+    "prod": "parcel build src/index.html"
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,13 @@
     "gulp": "^4.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-sass": "^4.0.2",
-    "gulp-watch": "^5.0.1"
+    "gulp-watch": "^5.0.1",
+    "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "bro": "0.0.3",
+    "js": "^0.1.0",
+    "locomotive-scroll": "^4.0.6",
+    "scripts": "^0.1.0"
   }
 }

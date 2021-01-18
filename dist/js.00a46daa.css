@@ -547,7 +547,7 @@ ul {
       left: -10%;
       top: -100px;
       opacity: 0;
-      background-image: url("src/assets/empty-frame.png");
+      background-image: url("/empty-frame.c3dea581.png");
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
@@ -571,7 +571,7 @@ ul {
       left: 40%;
       bottom: -50%;
       opacity: 0;
-      background-image: url("src/assets/me-dj.gif");
+      background-image: url("/me-dj.856b66fd.gif");
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -605,3 +605,6 @@ ul {
   object-fit: cover;
   width: 100%;
   height: 100%; }
+
+
+/*# sourceMappingURL=/js.00a46daa.css.map */

@@ -94,11 +94,11 @@
                 @include transition($transition-duration);
             }
             &:hover {
+                cursor: help;
                 &:after {
                     background: $negro;
                     opacity: 1;
                     transform: rotate3d(1, 1, 1,0deg);
-                    cursor: help;
                 }
             }
         }
@@ -123,7 +123,7 @@
                     left: -10%;
                     top: -100px;
                     opacity: 0;
-                    background-image: url('static/assets/empty-frame.png');
+                    background-image: url('../assets/empty-frame.png');
                     background-position: center;
                     background-size: contain;
                     background-repeat: no-repeat;
@@ -151,7 +151,7 @@
                     left: 40%;
                     bottom: -50%;
                     opacity: 0;
-                    background-image: url('static/assets/me-dj.gif');
+                    background-image: url('../assets/me-dj.gif');
                     background-position: center;
                     background-size: cover;
                     background-repeat: no-repeat;
