@@ -1,30 +1,8 @@
-
-//import { bro } from './scripts/bro';
-
-//document.querySelector(".header h1").textContent = bro("Wasssup");
-
-import LocomotiveScroll from 'locomotive-scroll';
-
-import * as THREE from 'three';
-import '../sass/style.scss';
-
-
- const scroll = new LocomotiveScroll({
-     el: document.querySelector('[data-scroll-container]'),
-     smooth: true,
-     class: 'is-inview'
- });
-
-
-
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
 camera.position.set(4, 8, 5);
 camera.lookAt(scene.position);
 var renderer = new THREE.WebGLRenderer({ alpha: true });
-var skyColor = 0xFFFFFF;
-var groundColor = 0x333333;
-var intensity = 1;
 var light = new THREE.AmbientLight(0x404040); // soft white light
 scene.add(light);
 renderer.setSize(window.innerWidth, window.innerHeight);
