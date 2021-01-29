@@ -40156,7 +40156,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./../assets/empty-frame.png":[["empty-frame.c3dea581.png","assets/empty-frame.png"],"assets/empty-frame.png"],"./../assets/me-dj.gif":[["me-dj.856b66fd.gif","assets/me-dj.gif"],"assets/me-dj.gif"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"js/index.js":[function(require,module,exports) {
+},{"./../assets/me-machines.png":[["me-machines.f334a221.png","assets/me-machines.png"],"assets/me-machines.png"],"./../assets/empty-frame.png":[["empty-frame.c3dea581.png","assets/empty-frame.png"],"assets/empty-frame.png"],"./../assets/me-dj.gif":[["me-dj.856b66fd.gif","assets/me-dj.gif"],"assets/me-dj.gif"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"js/index.js":[function(require,module,exports) {
 "use strict";
 
 var _locomotiveScroll = _interopRequireDefault(require("locomotive-scroll"));
@@ -40177,7 +40177,8 @@ var scroll = new _locomotiveScroll.default({
   el: document.querySelector('[data-scroll-container]'),
   smooth: true,
   class: 'is-inview'
-});
+}); // 3D landing
+
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
 camera.position.set(4, 8, 5);
@@ -40185,20 +40186,24 @@ camera.lookAt(scene.position);
 var renderer = new THREE.WebGLRenderer({
   alpha: true
 });
-var skyColor = 0xFFFFFF;
-var groundColor = 0x333333;
-var intensity = 1;
 var light = new THREE.AmbientLight(0x404040); // soft white light
 
 scene.add(light);
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.querySelector('.the-section--landing-bouncy').appendChild(renderer.domElement);
-var plane = new THREE.Mesh(new THREE.PlaneGeometry(5, 10, 5, 10), new THREE.MeshBasicMaterial({
-  color: 0xffffff,
+var texture = new THREE.TextureLoader().load('../src/assets/green-texture.jpg');
+var mirrorMaterial = new THREE.MeshLambertMaterial({
+  alphaMap: texture,
+  reflectivity: 5,
+  combine: THREE.MixOperation
+});
+var simpleMaterial = new THREE.MeshBasicMaterial({
+  color: 0x333333,
   wireframe: true
-}));
-plane.rotation.x = -Math.PI * 0.5;
-scene.add(plane);
+});
+var plane = new THREE.Mesh(new THREE.PlaneGeometry(5, 10, 5, 10), mirrorMaterial);
+plane.rotation.x = -Math.PI * 0.5; //scene.add(plane);
+
 var ballMaterial = new THREE.MeshBasicMaterial({
   color: 0x96F300,
   wireframe: false,
@@ -40220,7 +40225,31 @@ function render() {
   ball.position.y = 0.5 + Math.abs(Math.sin(time * 3)) * 2;
   ball.position.z = Math.cos(time) * 4;
   renderer.render(scene, camera);
+} // Who am I lluvia 
+
+
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
 }
+
+var container = document.querySelector('.the-section--who-am-i--lluvia');
+
+function spawn() {
+  var image = document.createElement("div");
+  image.classList.add("the-section--who-am-i--lluvia-drop");
+  image.style.left = getRndInteger(0, 90) + '%';
+  image.style.top = getRndInteger(-10, 40) + '%';
+  container.appendChild(image);
+  setTimeout(function () {
+    container.removeChild(image);
+  }, 3500);
+}
+
+setTimeout(function run() {
+  spawn();
+  setTimeout(run, 100 + Math.random() * 300);
+}, 500 + Math.random() * 100);
+spawn();
 },{"locomotive-scroll":"../node_modules/locomotive-scroll/dist/locomotive-scroll.esm.js","three":"../node_modules/three/build/three.module.js","../sass/style.scss":"sass/style.scss"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -40249,7 +40278,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56215" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53199" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

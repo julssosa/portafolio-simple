@@ -6,6 +6,7 @@
 import LocomotiveScroll from 'locomotive-scroll';
 
 import * as THREE from 'three';
+
 import '../sass/style.scss';
 
 
@@ -16,26 +17,36 @@ import '../sass/style.scss';
  });
 
 
+// 3D landing
 
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
 camera.position.set(4, 8, 5);
 camera.lookAt(scene.position);
 var renderer = new THREE.WebGLRenderer({ alpha: true });
-var skyColor = 0xFFFFFF;
-var groundColor = 0x333333;
-var intensity = 1;
 var light = new THREE.AmbientLight(0x404040); // soft white light
 scene.add(light);
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.querySelector('.the-section--landing-bouncy').appendChild(renderer.domElement);
 
-var plane = new THREE.Mesh(new THREE.PlaneGeometry(5, 10, 5, 10), new THREE.MeshBasicMaterial({
-  color: 0xffffff,
+const texture = new THREE.TextureLoader().load( '../src/assets/green-texture.jpg' );
+
+const mirrorMaterial = new THREE.MeshLambertMaterial({
+  alphaMap: texture,
+  
+  reflectivity: 5,
+  combine: THREE.MixOperation
+
+});
+
+const simpleMaterial = new THREE.MeshBasicMaterial({
+  color: 0x333333,
   wireframe: true
-}));
+});
+
+var plane = new THREE.Mesh(new THREE.PlaneGeometry(5, 10, 5, 10), mirrorMaterial);
 plane.rotation.x = -Math.PI * 0.5;
-scene.add(plane);
+//scene.add(plane);
 
 var ballMaterial = new THREE.MeshBasicMaterial({
   color: 0x96F300,
@@ -63,3 +74,38 @@ function render() {
   ball.position.z = Math.cos(time) * 4;
   renderer.render(scene, camera);
 }
+
+
+
+
+// Who am I lluvia 
+
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min) ) + min;
+}
+
+var container = document.querySelector('.the-section--who-am-i--lluvia')
+
+function spawn() {
+  var image = document.createElement("div"); 
+  image.classList.add("the-section--who-am-i--lluvia-drop");
+  
+  image.style.left = getRndInteger(0,90) + '%';
+  image.style.top = getRndInteger(-10,40) + 
+    '%';
+  
+  container.appendChild(image)
+
+  setTimeout(function() { 
+    container.removeChild(image) 
+  }, 3500)
+  
+}
+
+setTimeout(function run() {
+  spawn()
+  setTimeout(run, 100 + Math.random() * 300)
+}, 500 + Math.random() * 100)
+
+spawn()
+

@@ -1,7 +1,7 @@
 .section {
     &--wrapper {
         min-width: 100vw;
-        min-height: 100vh;
+        min-height: 125vh;
         position: relative;
         overflow: hidden;
     }
@@ -51,29 +51,72 @@
 
     &--who-am-i {
         display: flex;
-        align-items: center; 
-        
+        align-items: flex-start; 
+        height: 200vh;
+        padding: 120px 0 0 0;
 
+        .section--content-container {
+            width: 100%;
+            padding: 0;
+            position: absolute;
+            left: 150px;
+            right: 60px;
+            top: 120px;
+            max-width: 80%;
+        }
+        
+        
         &--lluvia {
+            top: 0;
             background: $pollito;
             width: 100%;
-            height: 100%;    
+            height: 100vh;    
             
-            &-nrml {
-                img {
+            &-drop {
+                position: absolute;
+                width: 100px;
+                height: 135px;
+                left: 0;
+                top: 0;
+                opacity: 0;
+                animation: animate 3.5s ease-in-out;
+                background-image: url(../assets/me-machines.png);
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                mix-blend-mode: screen;
+                @include transition($transition-duration);
+                &:hover {
                     mix-blend-mode: normal;
                 }
-            }
 
-            &-scrn {
-                img {
-                    mix-blend-mode: screen;
-                }
+                @keyframes animate {
+                    from {
+                      transform: translate3d(0, 0, 0);
+                      opacity: 0;
+                    }
+                  
+                    25% {
+                      opacity: 1;
+                    }
+                  
+                    50% {
+                      opacity: 1;
+                    }
+                  
+                    to {
+                      transform: translate3d(0, 450%, 0) scale(0.9);
+                      opacity: 0;
+                    }
+                  }
+
             }
+      
         }
       
         .txt-tachado {
             position: relative;
+            z-index: 1000;
             &:after {
                 content: 'Is it crass to
                 say you do things

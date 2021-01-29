@@ -516,6 +516,9 @@ ul {
   line-height: 1; }
   .header h4, .header h1 {
     margin: 0; }
+  .header h1 {
+    mix-blend-mode: exclusion;
+    color: #1f1f1f; }
 
 .menu-moving {
   position: fixed;
@@ -527,7 +530,7 @@ ul {
 
 .section--wrapper {
   min-width: 100vw;
-  min-height: 100vh;
+  min-height: 125vh;
   position: relative;
   overflow: hidden; }
 
@@ -560,17 +563,57 @@ ul {
 
 .the-section--who-am-i {
   display: flex;
-  align-items: center; }
+  align-items: flex-start;
+  height: 200vh;
+  padding: 120px 0 0 0; }
+  .the-section--who-am-i .section--content-container {
+    width: 100%;
+    padding: 0;
+    position: absolute;
+    left: 150px;
+    right: 60px;
+    top: 120px;
+    max-width: 80%; }
   .the-section--who-am-i--lluvia {
+    top: 0;
     background: #FFF500;
     width: 100%;
-    height: 100%; }
-    .the-section--who-am-i--lluvia-nrml img {
-      mix-blend-mode: normal; }
-    .the-section--who-am-i--lluvia-scrn img {
-      mix-blend-mode: screen; }
+    height: 100vh; }
+    .the-section--who-am-i--lluvia-drop {
+      position: absolute;
+      width: 100px;
+      height: 135px;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      animation: animate 3.5s ease-in-out;
+      background-image: url(/me-machines.f334a221.png);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      mix-blend-mode: screen;
+      -webkit-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      -ms-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out; }
+      .the-section--who-am-i--lluvia-drop:hover {
+        mix-blend-mode: normal; }
+
+@keyframes animate {
+  from {
+    transform: translate3d(0, 0, 0);
+    opacity: 0; }
+  25% {
+    opacity: 1; }
+  50% {
+    opacity: 1; }
+  to {
+    transform: translate3d(0, 450%, 0) scale(0.9);
+    opacity: 0; } }
   .the-section--who-am-i .txt-tachado {
-    position: relative; }
+    position: relative;
+    z-index: 1000; }
     .the-section--who-am-i .txt-tachado:after {
       content: 'Is it crass to say you do things for money?';
       display: flex;
