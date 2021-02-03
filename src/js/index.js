@@ -7,6 +7,8 @@ import LocomotiveScroll from 'locomotive-scroll';
 
 import * as THREE from 'three';
 
+import './scripts/particles.js';
+
 import '../sass/style.scss';
 
 
@@ -108,4 +110,14 @@ setTimeout(function run() {
 }, 500 + Math.random() * 100)
 
 spawn()
+
+const jsonPath = require('./particlessettings.json');
+
+
+// import particlessettings from './particlessettings.json';
+// console.log(particlessettings);
+
+ particlesJS.load('particles-js', jsonPath, function () {
+   console.log('loaded');
+ });
 
