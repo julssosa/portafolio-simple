@@ -647,6 +647,90 @@ ul {
   display: flex;
   align-items: center;
   color: #FF0000; }
+  .the-section--work-list .webprj-link > a {
+    position: relative;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    height: 90px; }
+    .the-section--work-list .webprj-link > a:hover h2 {
+      background: #000000;
+      width: 100%;
+      height: 100%;
+      color: #0F0;
+      font-family: 'Courier New', Courier, monospace;
+      margin: 0;
+      font-size: 3.4vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-around; }
+    .the-section--work-list .webprj-link > a:hover #matrix {
+      opacity: 1; }
+  .the-section--work-list .webprj-link #matrix {
+    opacity: 0;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    font-family: Katakana;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10px;
+    background: transparent;
+    /*background-image: -webkit-gradient(linear, 0% 90%, 0% 100%, from(rgba(0, 255, 0, 0)), to(rgba(0, 255, 0, 0.1)));*/
+    color: lime;
+    /*text-shadow: rgba(255, 255, 255, .8) 0px 0px 4px;*/
+    position: absolute; }
+
+@-webkit-keyframes fade {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@-webkit-keyframes fall {
+  from {
+    top: -250px; }
+  to {
+    top: 300px; } }
+  .the-section--work-list .webprj-link #matrix > div {
+    /* writing-mode: tb-rl; - ughh. doesn't work */
+    position: absolute;
+    top: 0;
+    /* arrearance */
+    -webkit-transform-origin: 0%;
+    -webkit-transform: rotate(90deg);
+    /* animation */
+    -webkit-animation-name: fall, fade;
+    -webkit-animation-iteration-count: infinite;
+    /* use 0 to infinite */
+    -webkit-animation-direction: normal;
+    /* default is normal. use 'alternate' to reverse direction */
+    -webkit-animation-timing-function: ease-out; }
+  .the-section--work-list .webprj-link #matrix span {
+    color: #0F0;
+    /*text-shadow: rgb(255, 255, 255) 0px 0px 5px;*/ }
+  .the-section--work-list .webprj-link .f1 {
+    font-size: 1.2em; }
+  .the-section--work-list .webprj-link .f2 {
+    font-size: .9em; }
+  .the-section--work-list .webprj-link .c1 {
+    color: rgba(0, 255, 0, 0.5); }
+  .the-section--work-list .webprj-link .d1 {
+    -webkit-animation-duration: 4s; }
+  .the-section--work-list .webprj-link .d2 {
+    -webkit-animation-duration: 6s; }
+  .the-section--work-list .webprj-link .d3 {
+    -webkit-animation-duration: 8s; }
+  .the-section--work-list .webprj-link .d4 {
+    -webkit-animation-duration: 10s; }
+  .the-section--work-list .webprj-link .de {
+    -webkit-animation-delay: 3s; }
   .the-section--work-list .artprj-link {
     position: relative;
     z-index: 5; }
@@ -701,6 +785,28 @@ ul {
     margin: 30px 0; }
     .the-section--contact-social li {
       margin: 0 15px 0 0; }
+  .the-section--contact .section--content-container > h2 {
+    position: relative; }
+    .the-section--contact .section--content-container > h2:hover {
+      cursor: crosshair; }
+  .the-section--contact .section--content-container span, .the-section--contact .section--content-container i, .the-section--contact .section--content-container strong, .the-section--contact .section--content-container a {
+    display: inline-block;
+    transition: 1s transform ease-out;
+    height: 96px; }
+    .the-section--contact .section--content-container span:hover, .the-section--contact .section--content-container i:hover, .the-section--contact .section--content-container strong:hover, .the-section--contact .section--content-container a:hover {
+      transform: translateY(-20px);
+      transition: 0.1s transform linear; }
+
+@keyframes swingup {
+  from {
+    transform: translate3d(0, 0, 0); }
+  25% { }
+  50% {
+    transform: translate3d(0, -15px, 0); }
+  to {
+    transform: translate3d(0, 0, 0); } }
+  .the-section--contact .section--content-container a:hover {
+    cursor: pointer; }
 
 .the-section--web-projects {
   background: #9F62DF;

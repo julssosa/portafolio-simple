@@ -157,6 +157,135 @@
 
         &-list {
             
+
+            .webprj-link {
+                > a {
+                    position: relative;  
+                    height: fit-content;
+                    display: flex;
+                    align-items: center;
+                    height: 90px;
+                    
+                    
+
+                    &:hover {
+                        
+                        h2 {
+                            background: $negro;
+                            width: 100%;
+                            height: 100%;
+                            color: $green;
+                            font-family:'Courier New', Courier, monospace;
+                            margin: 0;
+                            font-size: 3.4vw;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-around;
+                            
+                        }
+                        #matrix {
+                            opacity: 1;
+                        }
+                    }
+                }
+
+                
+                #matrix {
+                    opacity: 0;
+                    @include transition($transition-duration);
+                    font-family: Katakana;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    overflow: hidden;
+                    font-family:'Courier New', Courier, monospace;
+                    font-size: 10px;
+                    background: transparent;
+                    /*background-image: -webkit-gradient(linear, 0% 90%, 0% 100%, from(rgba(0, 255, 0, 0)), to(rgba(0, 255, 0, 0.1)));*/
+                    color: rgba(0, 255, 0, 1);
+                    /*text-shadow: rgba(255, 255, 255, .8) 0px 0px 4px;*/
+                    position: absolute;
+                }
+
+                @-webkit-keyframes fade {
+                    0% {
+                        opacity: 1;
+                    }
+
+                    100% {
+                        opacity: 0;
+                    }
+                }
+
+                @-webkit-keyframes fall {
+                    from {
+                        top: -250px;
+                    }
+
+                    to {
+                        top: 300px;
+                    }
+                }
+
+
+                #matrix>div {
+                    /* writing-mode: tb-rl; - ughh. doesn't work */
+                    position: absolute;
+                    top: 0;
+                    /* arrearance */
+                    -webkit-transform-origin: 0%;
+                    -webkit-transform: rotate(90deg);
+
+                    /* animation */
+                    -webkit-animation-name: fall, fade;
+                    -webkit-animation-iteration-count: infinite;
+                    /* use 0 to infinite */
+                    -webkit-animation-direction: normal;
+                    /* default is normal. use 'alternate' to reverse direction */
+                    -webkit-animation-timing-function: ease-out;
+                }
+
+                #matrix span {
+                    color: $green;
+                    /*text-shadow: rgb(255, 255, 255) 0px 0px 5px;*/
+                }
+
+                .f1 {
+                    font-size: 1.2em;
+                }
+
+                .f2 {
+                    font-size: .9em;
+                }
+
+                .c1 {
+                    color: rgba(0, 255, 0, .5);
+                }
+
+                .d1 {
+                    -webkit-animation-duration: 4s;
+                }
+
+                .d2 {
+                    -webkit-animation-duration: 6s;
+                }
+
+                .d3 {
+                    -webkit-animation-duration: 8s;
+                }
+
+                .d4 {
+                    -webkit-animation-duration: 10s;
+                }
+
+                .de {
+                    -webkit-animation-delay: 3s;
+                }
+
+            }
+
+
             .artprj-link {
                 position: relative;
                 z-index: 5;
@@ -229,6 +358,49 @@
                 margin: 0 $margin/2 0 0;
             }
 
+        }
+
+        .section--content-container {
+            > h2 {
+                position: relative;
+                &:hover {
+                    cursor: crosshair;
+                }
+            }
+            span, i, strong, a {
+               display: inline-block;
+                
+               transition: 1s transform ease-out;
+                height: 96px;
+                &:hover {
+                    transform: translateY(-20px);
+                    transition: 0.1s transform linear;
+                    
+                }
+
+                @keyframes swingup {
+                    from {
+                      transform: translate3d(0, 0, 0);
+                    }
+                  
+                    25% {
+                    }
+                    
+                    50% {
+                        transform: translate3d(0, -15px, 0);
+                    }
+                  
+                    to {
+                        transform: translate3d(0, 0, 0);
+                    }
+                  }
+
+            }
+            a {
+                &:hover {
+                    cursor: pointer;
+                }
+            }
         }
     }
 
