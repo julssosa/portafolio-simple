@@ -111,7 +111,12 @@ setTimeout(function run() {
 
 spawn()
 
-const jsonPath = require('./particlessettings.json');
+// const jsonPath = require('./particlessettings.json');
+
+
+//  particlesJS.load('particles-js', jsonPath, function () {
+//    console.log('loaded');
+//  });
 
 particlesJS("particles-js", {
   "particles": {
@@ -135,13 +140,13 @@ particlesJS("particles-js", {
         "nb_sides": 3
       },
       "image": {
-        "src": "objeto_negro.png",
-        "width": 600,
-        "height": 600
+        "src": "https://github.com/julssosa/portafolio-simple/blob/main/src/assets/objeto_negro.png?raw=true",
+        "width": 1000,
+        "height": 1000
       }
     },
     "opacity": {
-      "value": 0.3,
+      "value": 0.1,
       "random": true,
       "anim": {
         "enable": false,
@@ -151,11 +156,11 @@ particlesJS("particles-js", {
       }
     },
     "size": {
-      "value": 236.50327897766462,
+      "value": 450,
       "random": true,
       "anim": {
         "enable": true,
-        "speed": 10,
+        "speed": 4.872463273808071,
         "size_min": 40,
         "sync": false
       }
@@ -169,16 +174,16 @@ particlesJS("particles-js", {
     },
     "move": {
       "enable": true,
-      "speed": 8,
+      "speed": 3,
       "direction": "none",
-      "random": false,
+      "random": true,
       "straight": false,
       "out_mode": "out",
       "bounce": false,
       "attract": {
-        "enable": false,
-        "rotateX": 600,
-        "rotateY": 1200
+        "enable": true,
+        "rotateX": 5692.112816072607,
+        "rotateY": 1843.9238699953512
       }
     }
   },
@@ -222,5 +227,7 @@ particlesJS("particles-js", {
     }
   },
   "retina_detect": true
+}, function () {
+    console.log('particles loaded');
 });
 
