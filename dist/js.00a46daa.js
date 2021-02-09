@@ -41789,12 +41789,13 @@ var scroll = new _locomotiveScroll.default({
   smooth: true,
   class: 'is-inview'
 });
-var scrollToHomeBtn = '.nav--go-up';
-
-document.querySelector(scrollToHomeBtn).onclick = function () {
-  scroll.scrollTo(document.querySelector('.the-section--landing'));
-}; // 3D landing
-
+var navBtn = document.querySelectorAll('nav button');
+navBtn.forEach(function (item) {
+  item.addEventListener('click', function (event) {
+    var theSectionToScrollTo = ".the-section--".concat(item.id);
+    scroll.scrollTo(document.querySelector(theSectionToScrollTo));
+  });
+}); // 3D landing
 
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
@@ -41870,6 +41871,7 @@ spawn(); // const jsonPath = require('./particlessettings.json');
 //  particlesJS.load('particles-js', jsonPath, function () {
 //    console.log('loaded');
 //  });
+// Sección proyectos
 
 particlesJS("particles-js", {
   "particles": {

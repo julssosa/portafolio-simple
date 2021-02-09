@@ -565,7 +565,7 @@ button {
 
 .section--wrapper {
   min-width: 100vw;
-  min-height: 125vh;
+  min-height: 100vh;
   position: relative;
   overflow: hidden; }
 
@@ -585,6 +585,16 @@ button {
 
 .section--overlay-container {
   z-index: 10; }
+
+.section--horizontal-scroll {
+  overflow: visible; }
+  .section--horizontal-scroll-sections {
+    display: flex; }
+  .section--horizontal-scroll-section {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    position: relative; }
 
 .the-section--landing {
   display: flex;
@@ -682,13 +692,13 @@ button {
   display: flex;
   align-items: center;
   color: #FF0000; }
-  .the-section--work-list .webprj-link > a {
+  .the-section--work--main-list .webprj-link > a {
     position: relative;
     height: fit-content;
     display: flex;
     align-items: center;
     height: 90px; }
-    .the-section--work-list .webprj-link > a:hover h2 {
+    .the-section--work--main-list .webprj-link > a:hover h2 {
       background: #000000;
       width: 100%;
       height: 100%;
@@ -699,9 +709,9 @@ button {
       display: flex;
       align-items: center;
       justify-content: space-around; }
-    .the-section--work-list .webprj-link > a:hover #matrix {
+    .the-section--work--main-list .webprj-link > a:hover #matrix {
       opacity: 1; }
-  .the-section--work-list .webprj-link #matrix {
+  .the-section--work--main-list .webprj-link #matrix {
     opacity: 0;
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
@@ -733,7 +743,7 @@ button {
     top: -250px; }
   to {
     top: 300px; } }
-  .the-section--work-list .webprj-link #matrix > div {
+  .the-section--work--main-list .webprj-link #matrix > div {
     /* writing-mode: tb-rl; - ughh. doesn't work */
     position: absolute;
     top: 0;
@@ -747,29 +757,29 @@ button {
     -webkit-animation-direction: normal;
     /* default is normal. use 'alternate' to reverse direction */
     -webkit-animation-timing-function: ease-out; }
-  .the-section--work-list .webprj-link #matrix span {
+  .the-section--work--main-list .webprj-link #matrix span {
     color: #0F0;
     /*text-shadow: rgb(255, 255, 255) 0px 0px 5px;*/ }
-  .the-section--work-list .webprj-link .f1 {
+  .the-section--work--main-list .webprj-link .f1 {
     font-size: 1.2em; }
-  .the-section--work-list .webprj-link .f2 {
+  .the-section--work--main-list .webprj-link .f2 {
     font-size: .9em; }
-  .the-section--work-list .webprj-link .c1 {
+  .the-section--work--main-list .webprj-link .c1 {
     color: rgba(0, 255, 0, 0.5); }
-  .the-section--work-list .webprj-link .d1 {
+  .the-section--work--main-list .webprj-link .d1 {
     -webkit-animation-duration: 4s; }
-  .the-section--work-list .webprj-link .d2 {
+  .the-section--work--main-list .webprj-link .d2 {
     -webkit-animation-duration: 6s; }
-  .the-section--work-list .webprj-link .d3 {
+  .the-section--work--main-list .webprj-link .d3 {
     -webkit-animation-duration: 8s; }
-  .the-section--work-list .webprj-link .d4 {
+  .the-section--work--main-list .webprj-link .d4 {
     -webkit-animation-duration: 10s; }
-  .the-section--work-list .webprj-link .de {
+  .the-section--work--main-list .webprj-link .de {
     -webkit-animation-delay: 3s; }
-  .the-section--work-list .artprj-link {
+  .the-section--work--main-list .artprj-link {
     position: relative;
     z-index: 5; }
-    .the-section--work-list .artprj-link:after {
+    .the-section--work--main-list .artprj-link:after {
       content: '';
       display: block;
       width: 390px;
@@ -788,12 +798,12 @@ button {
       -moz-transition: all 0.3s ease-in-out;
       -ms-transition: all 0.3s ease-in-out;
       transition: all 0.3s ease-in-out; }
-    .the-section--work-list .artprj-link:hover:after {
+    .the-section--work--main-list .artprj-link:hover:after {
       opacity: 1;
       transform: scale(1); }
-  .the-section--work-list .musicprj-link {
+  .the-section--work--main-list .musicprj-link {
     position: relative; }
-    .the-section--work-list .musicprj-link:after {
+    .the-section--work--main-list .musicprj-link:after {
       content: '';
       display: block;
       width: 25vw;
@@ -806,7 +816,7 @@ button {
       background-size: cover;
       background-repeat: no-repeat;
       position: absolute; }
-    .the-section--work-list .musicprj-link:hover:after {
+    .the-section--work--main-list .musicprj-link:hover:after {
       opacity: 1; }
 
 .the-section--contact {
@@ -843,9 +853,9 @@ button {
   .the-section--contact .section--content-container a:hover {
     cursor: pointer; }
 
-.the-section--web-projects {
+.the-section--work-web-projects {
   color: #FFFFFF; }
-  .the-section--web-projects .section--background-container .ellipse {
+  .the-section--work-web-projects .section--background-container .ellipse {
     background: #FFFFFF;
     position: absolute;
     -webkit-box-shadow: 0px 0px 26px 130px white;
@@ -860,7 +870,7 @@ button {
     opacity: 0.25;
     z-index: 5;
     animation: biglightmove 100s ease infinite; }
-  .the-section--web-projects .section--background-container .ellipse-rotate {
+  .the-section--work-web-projects .section--background-container .ellipse-rotate {
     background: #000000;
     position: absolute;
     -webkit-box-shadow: 0px 0px 26px 130px black;
@@ -899,7 +909,7 @@ button {
     left: 0;
     top: 0;
     transform: rotate3d(2, -1, -1, 180deg); } }
-  .the-section--web-projects .section--palatnik-base-bg {
+  .the-section--work-web-projects .section--palatnik-base-bg {
     background: linear-gradient(-45deg, #9F62DF, #e73c7e, #23a6d5, #23d5ab);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
@@ -907,7 +917,7 @@ button {
     height: 100%;
     z-index: -2;
     opacity: 0.95; }
-  .the-section--web-projects .section--palatnik-shapes {
+  .the-section--work-web-projects .section--palatnik-shapes {
     z-index: -3;
     position: absolute;
     left: 0;

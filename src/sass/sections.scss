@@ -1,7 +1,9 @@
 .section {
+    
     &--wrapper {
         min-width: 100vw;
-        min-height: 125vh;
+        // min-height: 125vh;
+        min-height: 100vh;
         position: relative;
         overflow: hidden;
     }
@@ -27,6 +29,21 @@
 
     &--overlay-container {
         z-index: 10;
+    }
+
+    &--horizontal-scroll {
+        overflow: visible;
+        &-sections {
+            display: flex;
+        }
+
+        &-section {
+            display: flex;
+            align-items: center;
+            width: 100vw;
+            position: relative;
+        }
+
     }
 }
 
@@ -155,189 +172,189 @@
         align-items: center; 
         color: $rojo;
 
-        &-list {
+        &--main {
+            &-list {
             
-
-            .webprj-link {
-                > a {
-                    position: relative;  
-                    height: fit-content;
-                    display: flex;
-                    align-items: center;
-                    height: 90px;
-                    
-                    
-
-                    &:hover {
+                .webprj-link {
+                    > a {
+                        position: relative;  
+                        height: fit-content;
+                        display: flex;
+                        align-items: center;
+                        height: 90px;
                         
-                        h2 {
-                            background: $negro;
-                            width: 100%;
-                            height: 100%;
-                            color: $green;
-                            font-family:'Courier New', Courier, monospace;
-                            margin: 0;
-                            font-size: 3.4vw;
-                            display: flex;
-                            align-items: center;
-                            justify-content: space-around;
+                        
+    
+                        &:hover {
                             
+                            h2 {
+                                background: $negro;
+                                width: 100%;
+                                height: 100%;
+                                color: $green;
+                                font-family:'Courier New', Courier, monospace;
+                                margin: 0;
+                                font-size: 3.4vw;
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-around;
+                                
+                            }
+                            #matrix {
+                                opacity: 1;
+                            }
                         }
-                        #matrix {
+                    }
+    
+                    
+                    #matrix {
+                        opacity: 0;
+                        @include transition($transition-duration);
+                        font-family: Katakana;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                        overflow: hidden;
+                        font-family:'Courier New', Courier, monospace;
+                        font-size: 10px;
+                        background: transparent;
+                        /*background-image: -webkit-gradient(linear, 0% 90%, 0% 100%, from(rgba(0, 255, 0, 0)), to(rgba(0, 255, 0, 0.1)));*/
+                        color: rgba(0, 255, 0, 1);
+                        /*text-shadow: rgba(255, 255, 255, .8) 0px 0px 4px;*/
+                        position: absolute;
+                    }
+    
+                    @-webkit-keyframes fade {
+                        0% {
+                            opacity: 1;
+                        }
+    
+                        100% {
+                            opacity: 0;
+                        }
+                    }
+    
+                    @-webkit-keyframes fall {
+                        from {
+                            top: -250px;
+                        }
+    
+                        to {
+                            top: 300px;
+                        }
+                    }
+    
+    
+                    #matrix>div {
+                        /* writing-mode: tb-rl; - ughh. doesn't work */
+                        position: absolute;
+                        top: 0;
+                        /* arrearance */
+                        -webkit-transform-origin: 0%;
+                        -webkit-transform: rotate(90deg);
+    
+                        /* animation */
+                        -webkit-animation-name: fall, fade;
+                        -webkit-animation-iteration-count: infinite;
+                        /* use 0 to infinite */
+                        -webkit-animation-direction: normal;
+                        /* default is normal. use 'alternate' to reverse direction */
+                        -webkit-animation-timing-function: ease-out;
+                    }
+    
+                    #matrix span {
+                        color: $green;
+                        /*text-shadow: rgb(255, 255, 255) 0px 0px 5px;*/
+                    }
+    
+                    .f1 {
+                        font-size: 1.2em;
+                    }
+    
+                    .f2 {
+                        font-size: .9em;
+                    }
+    
+                    .c1 {
+                        color: rgba(0, 255, 0, .5);
+                    }
+    
+                    .d1 {
+                        -webkit-animation-duration: 4s;
+                    }
+    
+                    .d2 {
+                        -webkit-animation-duration: 6s;
+                    }
+    
+                    .d3 {
+                        -webkit-animation-duration: 8s;
+                    }
+    
+                    .d4 {
+                        -webkit-animation-duration: 10s;
+                    }
+    
+                    .de {
+                        -webkit-animation-delay: 3s;
+                    }
+    
+                }
+    
+                .artprj-link {
+                    position: relative;
+                    z-index: 5;
+                    &:after {
+                        content:'';
+                        display: block;
+                        width: 390px;
+                        height: 270px;
+                        left: -10%;
+                        top: -100px;
+                        opacity: 0;
+                        background-image: url('../assets/empty-frame.png');
+                        background-position: center;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        position: absolute;
+                        transform: scale(0);
+                        @include transition($transition-duration);
+                    }
+    
+                    &:hover {
+                        &:after {
+                            opacity: 1;
+                            transform: scale(1);
+                        }
+                    }
+                }
+                
+                .musicprj-link {
+                    position: relative;
+                    
+                    &:after {
+                        content:'';
+                        display: block;
+                        width: 25vw;
+                        height: 65vh;
+                        left: 40%;
+                        bottom: -50%;
+                        opacity: 0;
+                        background-image: url('../assets/me-dj.gif');
+                        background-position: center;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        position: absolute;
+                    }
+    
+                    &:hover {
+                        &:after {
                             opacity: 1;
                         }
                     }
+                    
                 }
-
-                
-                #matrix {
-                    opacity: 0;
-                    @include transition($transition-duration);
-                    font-family: Katakana;
-                    width: 100%;
-                    height: 100%;
-                    top: 0;
-                    left: 0;
-                    overflow: hidden;
-                    font-family:'Courier New', Courier, monospace;
-                    font-size: 10px;
-                    background: transparent;
-                    /*background-image: -webkit-gradient(linear, 0% 90%, 0% 100%, from(rgba(0, 255, 0, 0)), to(rgba(0, 255, 0, 0.1)));*/
-                    color: rgba(0, 255, 0, 1);
-                    /*text-shadow: rgba(255, 255, 255, .8) 0px 0px 4px;*/
-                    position: absolute;
-                }
-
-                @-webkit-keyframes fade {
-                    0% {
-                        opacity: 1;
-                    }
-
-                    100% {
-                        opacity: 0;
-                    }
-                }
-
-                @-webkit-keyframes fall {
-                    from {
-                        top: -250px;
-                    }
-
-                    to {
-                        top: 300px;
-                    }
-                }
-
-
-                #matrix>div {
-                    /* writing-mode: tb-rl; - ughh. doesn't work */
-                    position: absolute;
-                    top: 0;
-                    /* arrearance */
-                    -webkit-transform-origin: 0%;
-                    -webkit-transform: rotate(90deg);
-
-                    /* animation */
-                    -webkit-animation-name: fall, fade;
-                    -webkit-animation-iteration-count: infinite;
-                    /* use 0 to infinite */
-                    -webkit-animation-direction: normal;
-                    /* default is normal. use 'alternate' to reverse direction */
-                    -webkit-animation-timing-function: ease-out;
-                }
-
-                #matrix span {
-                    color: $green;
-                    /*text-shadow: rgb(255, 255, 255) 0px 0px 5px;*/
-                }
-
-                .f1 {
-                    font-size: 1.2em;
-                }
-
-                .f2 {
-                    font-size: .9em;
-                }
-
-                .c1 {
-                    color: rgba(0, 255, 0, .5);
-                }
-
-                .d1 {
-                    -webkit-animation-duration: 4s;
-                }
-
-                .d2 {
-                    -webkit-animation-duration: 6s;
-                }
-
-                .d3 {
-                    -webkit-animation-duration: 8s;
-                }
-
-                .d4 {
-                    -webkit-animation-duration: 10s;
-                }
-
-                .de {
-                    -webkit-animation-delay: 3s;
-                }
-
-            }
-
-
-            .artprj-link {
-                position: relative;
-                z-index: 5;
-                &:after {
-                    content:'';
-                    display: block;
-                    width: 390px;
-                    height: 270px;
-                    left: -10%;
-                    top: -100px;
-                    opacity: 0;
-                    background-image: url('../assets/empty-frame.png');
-                    background-position: center;
-                    background-size: contain;
-                    background-repeat: no-repeat;
-                    position: absolute;
-                    transform: scale(0);
-                    @include transition($transition-duration);
-                }
-
-                &:hover {
-                    &:after {
-                        opacity: 1;
-                        transform: scale(1);
-                    }
-                }
-            }
-            
-            .musicprj-link {
-                position: relative;
-                
-                &:after {
-                    content:'';
-                    display: block;
-                    width: 25vw;
-                    height: 65vh;
-                    left: 40%;
-                    bottom: -50%;
-                    opacity: 0;
-                    background-image: url('../assets/me-dj.gif');
-                    background-position: center;
-                    background-size: cover;
-                    background-repeat: no-repeat;
-                    position: absolute;
-                }
-
-                &:hover {
-                    &:after {
-                        opacity: 1;
-                    }
-                }
-                
             }
         }
         
@@ -404,7 +421,7 @@
         }
     }
 
-    &--web-projects {
+    &--work-web-projects {
         color: $blanco;
         
         .section {

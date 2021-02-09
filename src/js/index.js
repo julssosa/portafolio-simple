@@ -1,4 +1,3 @@
-
 //import { bro } from './scripts/bro';
 
 //document.querySelector(".header h1").textContent = bro("Wasssup");
@@ -12,17 +11,21 @@ import './scripts/particles.js';
 import '../sass/style.scss';
 
 
- const scroll = new LocomotiveScroll({
-     el: document.querySelector('[data-scroll-container]'),
-     smooth: true,
-     class: 'is-inview'
- });
+const scroll = new LocomotiveScroll({
+  el: document.querySelector('[data-scroll-container]'),
+  smooth: true,
+  class: 'is-inview'
+});
 
-const scrollToHomeBtn = '.nav--go-up';
- 
-document.querySelector(scrollToHomeBtn).onclick = function () {
-  scroll.scrollTo(document.querySelector('.the-section--landing'));
-}
+
+const navBtn = document.querySelectorAll('nav button');
+
+navBtn.forEach(item => {
+  item.addEventListener('click', event => {
+    let theSectionToScrollTo = `.the-section--${item.id}`;
+    scroll.scrollTo(document.querySelector(theSectionToScrollTo));
+  })
+})
 
 // 3D landing
 
@@ -30,17 +33,19 @@ var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
 camera.position.set(4, 8, 5);
 camera.lookAt(scene.position);
-var renderer = new THREE.WebGLRenderer({ alpha: true });
+var renderer = new THREE.WebGLRenderer({
+  alpha: true
+});
 var light = new THREE.AmbientLight(0x404040); // soft white light
 scene.add(light);
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.querySelector('.the-section--landing-bouncy').appendChild(renderer.domElement);
 
-const texture = new THREE.TextureLoader().load( '../src/assets/green-texture.jpg' );
+const texture = new THREE.TextureLoader().load('../src/assets/green-texture.jpg');
 
 const mirrorMaterial = new THREE.MeshLambertMaterial({
   alphaMap: texture,
-  
+
   reflectivity: 5,
   combine: THREE.MixOperation
 
@@ -88,25 +93,25 @@ function render() {
 // Who am I lluvia 
 
 function getRndInteger(min, max) {
-  return Math.floor(Math.random() * (max - min) ) + min;
+  return Math.floor(Math.random() * (max - min)) + min;
 }
 
 var container = document.querySelector('.the-section--who-am-i--lluvia')
 
 function spawn() {
-  var image = document.createElement("div"); 
+  var image = document.createElement("div");
   image.classList.add("the-section--who-am-i--lluvia-drop");
-  
-  image.style.left = getRndInteger(0,90) + '%';
-  image.style.top = getRndInteger(-10,40) + 
+
+  image.style.left = getRndInteger(0, 90) + '%';
+  image.style.top = getRndInteger(-10, 40) +
     '%';
-  
+
   container.appendChild(image)
 
-  setTimeout(function() { 
-    container.removeChild(image) 
+  setTimeout(function () {
+    container.removeChild(image)
   }, 3500)
-  
+
 }
 
 setTimeout(function run() {
@@ -122,6 +127,9 @@ spawn()
 //  particlesJS.load('particles-js', jsonPath, function () {
 //    console.log('loaded');
 //  });
+
+// Sección proyectos
+
 
 particlesJS("particles-js", {
   "particles": {
@@ -233,6 +241,5 @@ particlesJS("particles-js", {
   },
   "retina_detect": true
 }, function () {
-    console.log('particles loaded');
+  console.log('particles loaded');
 });
-
