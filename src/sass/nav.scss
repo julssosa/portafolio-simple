@@ -1,0 +1,28 @@
+.menu-moving {
+    position: fixed;
+    right: 60px;
+    top: 30px;
+    z-index: 20;
+
+    ul {
+        text-align: right;
+    }
+
+}
+
+.nav {
+    
+    &--left-top {
+        position: fixed;
+        left: 30px;
+        top: 30px;
+        z-index: 20;
+    }
+
+    &--go-up {
+        > div {
+            line-height: 0.4;
+            font-weight: bold;
+        }
+    }
+}

@@ -18,6 +18,11 @@ import '../sass/style.scss';
      class: 'is-inview'
  });
 
+const scrollToHomeBtn = '.nav--go-up';
+ 
+document.querySelector(scrollToHomeBtn).onclick = function () {
+  scroll.scrollTo(document.querySelector('.the-section--landing'));
+}
 
 // 3D landing
 

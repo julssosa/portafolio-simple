@@ -41788,7 +41788,13 @@ var scroll = new _locomotiveScroll.default({
   el: document.querySelector('[data-scroll-container]'),
   smooth: true,
   class: 'is-inview'
-}); // 3D landing
+});
+var scrollToHomeBtn = '.nav--go-up';
+
+document.querySelector(scrollToHomeBtn).onclick = function () {
+  scroll.scrollTo(document.querySelector('.the-section--landing'));
+}; // 3D landing
+
 
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
@@ -42005,7 +42011,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49725" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57652" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
