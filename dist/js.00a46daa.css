@@ -590,11 +590,15 @@ button {
   overflow: visible; }
   .section--horizontal-scroll-sections {
     display: flex; }
+    .section--horizontal-scroll-sections.scrolled-to-right {
+      transform: translate(-100vw, 0);
+      transition: all 1.5s ease-out; }
   .section--horizontal-scroll-section {
     display: flex;
     align-items: center;
     width: 100vw;
-    position: relative; }
+    position: relative;
+    overflow: hidden; }
 
 .the-section--landing {
   display: flex;

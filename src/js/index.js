@@ -14,9 +14,10 @@ import '../sass/style.scss';
 const scroll = new LocomotiveScroll({
   el: document.querySelector('[data-scroll-container]'),
   smooth: true,
-  class: 'is-inview'
-});
+  class: 'is-inview',
+  scrollFromAnywhere: true,
 
+});
 
 const navBtn = document.querySelectorAll('nav button');
 
@@ -26,6 +27,10 @@ navBtn.forEach(item => {
     scroll.scrollTo(document.querySelector(theSectionToScrollTo));
   })
 })
+
+document.querySelector('#work-web-projects').addEventListener('click', event => {
+  document.querySelector('.the-section--work .section--horizontal-scroll-sections').classList += ' scrolled-to-right';
+ })
 
 // 3D landing
 

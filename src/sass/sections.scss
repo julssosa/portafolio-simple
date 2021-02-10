@@ -33,8 +33,14 @@
 
     &--horizontal-scroll {
         overflow: visible;
+
+        
         &-sections {
             display: flex;
+            &.scrolled-to-right {
+                transform: translate(-100vw,0);
+                transition: all 1.5s ease-out;
+            }
         }
 
         &-section {
@@ -42,6 +48,7 @@
             align-items: center;
             width: 100vw;
             position: relative;
+            overflow: hidden;
         }
 
     }
