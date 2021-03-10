@@ -2,8 +2,8 @@
     
     &--wrapper {
         min-width: 100vw;
-        // min-height: 125vh;
-        min-height: 100vh;
+        //min-height: 125vh;
+        min-height: 120vh;
         position: relative;
         overflow: hidden;
     }
@@ -32,14 +32,24 @@
     }
 
     &--horizontal-scroll {
-        overflow: visible;
-
+        overflow: hidden;
+        // width: fit-content;
         
         &-sections {
             display: flex;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            transition: all 2s ease-in-out;
+            transform: translate(-100vw,0);
             &.scrolled-to-right {
-                transform: translate(-100vw,0);
-                transition: all 1.5s ease-out;
+                 transform: translate(-200vw,0);
+                 transition: all 2s ease-in-out;
+             }
+             &.scrolled-to-left {
+                transform: translate(0,0);
+                transition: all 2s ease-in-out;
             }
         }
 
@@ -76,8 +86,10 @@
     &--who-am-i {
         display: flex;
         align-items: flex-start; 
-        height: 200vh;
-        padding: 120px 0 0 0;
+        height: 150vh;
+        box-sizing: content-box;
+        padding: 120px 0 300px 0;
+        margin: 0 0 0 0;
 
         .section--content-container {
             width: 100%;
@@ -87,6 +99,50 @@
             right: 60px;
             top: 120px;
             max-width: 80%;
+             h2 {
+              //   opacity: 0;
+                 @include transition($transition-duration);
+             }
+             &.is-inview {
+                 h2 {
+                  //   opacity: 1;
+                     @include transition($transition-duration);
+                 }
+             }
+        }
+
+         .txt-tachado {
+            position: relative;
+            z-index: 1000;
+            &:after {
+                content: 'Is it crass to
+                say you do things
+                for money?';
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: $padding/2;
+                width: 165px;
+                height: 82px;
+                font-size: 12px;
+                font-family:'Courier New', Courier, monospace;
+                background: $pollito;
+                position: absolute;
+                color: $blanco;
+                top: -50px;
+                left: 15px;
+                opacity: 0;
+                transform: rotate3d(1, 1, 1, 105deg);
+                @include transition($transition-duration);
+            }
+            &:hover {
+                cursor: help;
+                &:after {
+                    background: $negro;
+                    opacity: 1;
+                    transform: rotate3d(1, 1, 1,0deg);
+                }
+            }
         }
         
         
@@ -98,12 +154,12 @@
             
             &-drop {
                 position: absolute;
-                width: 100px;
-                height: 135px;
+                width: 160px;
+                height: 200px;
                 left: 0;
                 top: 0;
                 opacity: 0;
-                animation: animate 3.5s ease-in-out;
+                animation: animate 5s ease-in-out;
                 background-image: url(../assets/me-machines.png);
                 background-size: cover;
                 background-position: center;
@@ -138,41 +194,11 @@
       
         }
       
-        .txt-tachado {
-            position: relative;
-            z-index: 1000;
-            &:after {
-                content: 'Is it crass to
-                say you do things
-                for money?';
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: $padding/2;
-                width: 165px;
-                height: 82px;
-                font-size: 12px;
-                font-family:'Courier New', Courier, monospace;
-                background: $pollito;
-                position: absolute;
-                color: $blanco;
-                top: -50px;
-                left: 15px;
-                opacity: 0;
-                transform: rotate3d(1, 1, 1, 105deg);
-                @include transition($transition-duration);
-            }
-            &:hover {
-                cursor: help;
-                &:after {
-                    background: $negro;
-                    opacity: 1;
-                    transform: rotate3d(1, 1, 1,0deg);
-                }
-            }
-        }
+       
 
     }
+
+  
 
     &--work {
         display: flex;
@@ -181,7 +207,10 @@
 
         &--main {
             &-list {
-            
+              
+                > li {
+                    margin-bottom: 120px;
+                }
                 .webprj-link {
                     > a {
                         position: relative;  
@@ -213,105 +242,19 @@
                         }
                     }
     
-                    
-                    #matrix {
-                        opacity: 0;
-                        @include transition($transition-duration);
-                        font-family: Katakana;
-                        width: 100%;
-                        height: 100%;
-                        top: 0;
-                        left: 0;
-                        overflow: hidden;
-                        font-family:'Courier New', Courier, monospace;
-                        font-size: 10px;
-                        background: transparent;
-                        /*background-image: -webkit-gradient(linear, 0% 90%, 0% 100%, from(rgba(0, 255, 0, 0)), to(rgba(0, 255, 0, 0.1)));*/
-                        color: rgba(0, 255, 0, 1);
-                        /*text-shadow: rgba(255, 255, 255, .8) 0px 0px 4px;*/
-                        position: absolute;
-                    }
-    
-                    @-webkit-keyframes fade {
-                        0% {
-                            opacity: 1;
-                        }
-    
-                        100% {
-                            opacity: 0;
-                        }
-                    }
-    
-                    @-webkit-keyframes fall {
-                        from {
-                            top: -250px;
-                        }
-    
-                        to {
-                            top: 300px;
-                        }
-                    }
-    
-    
-                    #matrix>div {
-                        /* writing-mode: tb-rl; - ughh. doesn't work */
-                        position: absolute;
-                        top: 0;
-                        /* arrearance */
-                        -webkit-transform-origin: 0%;
-                        -webkit-transform: rotate(90deg);
-    
-                        /* animation */
-                        -webkit-animation-name: fall, fade;
-                        -webkit-animation-iteration-count: infinite;
-                        /* use 0 to infinite */
-                        -webkit-animation-direction: normal;
-                        /* default is normal. use 'alternate' to reverse direction */
-                        -webkit-animation-timing-function: ease-out;
-                    }
-    
-                    #matrix span {
-                        color: $green;
-                        /*text-shadow: rgb(255, 255, 255) 0px 0px 5px;*/
-                    }
-    
-                    .f1 {
-                        font-size: 1.2em;
-                    }
-    
-                    .f2 {
-                        font-size: .9em;
-                    }
-    
-                    .c1 {
-                        color: rgba(0, 255, 0, .5);
-                    }
-    
-                    .d1 {
-                        -webkit-animation-duration: 4s;
-                    }
-    
-                    .d2 {
-                        -webkit-animation-duration: 6s;
-                    }
-    
-                    .d3 {
-                        -webkit-animation-duration: 8s;
-                    }
-    
-                    .d4 {
-                        -webkit-animation-duration: 10s;
-                    }
-    
-                    .de {
-                        -webkit-animation-delay: 3s;
-                    }
-    
+                    @import "parts/matrixfx";
+                   
                 }
     
                 .artprj-link {
                     position: relative;
                     z-index: 5;
+
+                    h2 {
+                        z-index: 10;
+                        position: relative;
+                    }
+                    
                     &:after {
                         content:'';
                         display: block;
@@ -320,13 +263,14 @@
                         left: -10%;
                         top: -100px;
                         opacity: 0;
-                        background-image: url('../assets/empty-frame.png');
+                        background-image: url('../assets/rauschenberg.jpg');
                         background-position: center;
                         background-size: contain;
                         background-repeat: no-repeat;
                         position: absolute;
                         transform: scale(0);
                         @include transition($transition-duration);
+                        z-index: 6;
                     }
     
                     &:hover {
@@ -353,14 +297,33 @@
                         background-size: cover;
                         background-repeat: no-repeat;
                         position: absolute;
+                        z-index: -2;
+                        
                     }
     
                     &:hover {
                         &:after {
                             opacity: 1;
+                            z-index: 5;
+                            animation: rotateX 2s ease-out;
+                            animation-iteration-count:infinite;
                         }
                     }
                     
+
+                    @keyframes rotateX {
+                        0% {
+                            transform: rotate3d(0, 1, 0, 90deg);
+                        }
+
+                        60% {
+                            transform: rotate3d(0, 1, 0, 0);
+                        }
+
+                        100% {
+                            transform: rotate3d(0, 1, 0, -90deg);
+                        }
+                    }
                 }
             }
         }
@@ -431,6 +394,14 @@
     &--work-web-projects {
         color: $blanco;
         
+        .work-go-back {
+            
+            img {
+                width: 60px;
+                height: auto;
+            }
+        }
+
         .section {
             &--background-container {
                 .ellipse {
@@ -546,6 +517,16 @@
     }
 
     &--music-projects {
+        align-items: flex-start;
+        
+        .music-go-forward {
+            transform: rotate(180deg);
+            img {
+                width: 60px;
+                height: auto;
+            }
+        }
+
         h2 {
             margin: 0 0 $margin/2 0;
         }

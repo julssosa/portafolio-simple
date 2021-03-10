@@ -10,14 +10,45 @@ import './scripts/particles.js';
 
 import '../sass/style.scss';
 
+Number.prototype.map = function (in_min, in_max, out_min, out_max) {
+  return (this - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
+
+
 
 const scroll = new LocomotiveScroll({
   el: document.querySelector('[data-scroll-container]'),
   smooth: true,
-  class: 'is-inview',
   scrollFromAnywhere: true,
-
+  getDirection: true,
 });
+
+
+var menuContainer = document.getElementById('menu-fixed');
+var scrollLimit = 0;
+
+scroll.on('call', (obj) => {
+  if (obj === "hide-home-arrow") {
+    document.getElementById('landing').classList.toggle('hidden');
+  }
+})
+
+
+scroll.on('scroll', (obj) => {
+  if (scrollLimit == 0) {
+    scrollLimit = obj.limit.y;
+  }
+
+  let scrollPos = obj.delta.y;
+  if (scrollPos == 0) {
+    menuContainer.style.top = '0vh';
+  } else {
+    let menuPos = parseInt(scrollPos.map(0, scrollLimit, 15, 100));
+    menuContainer.style.top = `calc(${menuPos}vh - 120px)`;
+  }
+});
+
+
 
 const navBtn = document.querySelectorAll('nav button');
 
@@ -29,8 +60,26 @@ navBtn.forEach(item => {
 })
 
 document.querySelector('#work-web-projects').addEventListener('click', event => {
-  document.querySelector('.the-section--work .section--horizontal-scroll-sections').classList += ' scrolled-to-right';
- })
+  document.querySelector('.the-section--work .section--horizontal-scroll-sections').classList.add('scrolled-to-right');
+  scroll.scrollTo(document.querySelector('.the-section--work-web-projects'));
+})
+
+document.querySelector('#music-projects').addEventListener('click', event => {
+  document.querySelector('.the-section--work .section--horizontal-scroll-sections').classList.add('scrolled-to-left');
+  scroll.scrollTo(document.querySelector('.the-section--work-web-projects'));
+})
+
+document.querySelector('.work-go-back').addEventListener('click', event => {
+  document.querySelector('.the-section--work .section--horizontal-scroll-sections').classList.remove('scrolled-to-right');
+});
+
+document.querySelector('.music-go-forward').addEventListener('click', event => {
+  document.querySelector('.the-section--work .section--horizontal-scroll-sections').classList.remove('scrolled-to-left');
+});
+
+
+
+
 
 // 3D landing
 

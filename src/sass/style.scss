@@ -8,6 +8,7 @@
 // Fuentes
 // @include font-ttf($aktiv-light, $normal, $light);
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300&display=swap');
 
 
 // Optimizacion rendering
@@ -124,6 +125,32 @@ button {
     text-decoration: line-through;
 }
 
+
+.fadeOut {
+    animation: fadeOut 1s ease-out;
+}
+
+.fadeOut {
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 
 
 // Responsive-1280px

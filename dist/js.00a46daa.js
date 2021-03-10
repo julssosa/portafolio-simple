@@ -41765,7 +41765,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./../assets/me-machines.png":[["me-machines.f334a221.png","assets/me-machines.png"],"assets/me-machines.png"],"./../assets/empty-frame.png":[["empty-frame.c3dea581.png","assets/empty-frame.png"],"assets/empty-frame.png"],"./../assets/me-dj.gif":[["me-dj.856b66fd.gif","assets/me-dj.gif"],"assets/me-dj.gif"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"js/index.js":[function(require,module,exports) {
+},{"./../assets/me-machines.png":[["me-machines.f334a221.png","assets/me-machines.png"],"assets/me-machines.png"],"./../assets/rauschenberg.jpg":[["rauschenberg.bc9c460f.jpg","assets/rauschenberg.jpg"],"assets/rauschenberg.jpg"],"./../assets/me-dj.gif":[["me-dj.856b66fd.gif","assets/me-dj.gif"],"assets/me-dj.gif"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"js/index.js":[function(require,module,exports) {
 "use strict";
 
 var _locomotiveScroll = _interopRequireDefault(require("locomotive-scroll"));
@@ -41784,11 +41784,36 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 //import { bro } from './scripts/bro';
 //document.querySelector(".header h1").textContent = bro("Wasssup");
+Number.prototype.map = function (in_min, in_max, out_min, out_max) {
+  return (this - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+};
+
 var scroll = new _locomotiveScroll.default({
   el: document.querySelector('[data-scroll-container]'),
   smooth: true,
-  class: 'is-inview',
-  scrollFromAnywhere: true
+  scrollFromAnywhere: true,
+  getDirection: true
+});
+var menuContainer = document.getElementById('menu-fixed');
+var scrollLimit = 0;
+scroll.on('call', function (obj) {
+  if (obj === "hide-home-arrow") {
+    document.getElementById('landing').classList.toggle('hidden');
+  }
+});
+scroll.on('scroll', function (obj) {
+  if (scrollLimit == 0) {
+    scrollLimit = obj.limit.y;
+  }
+
+  var scrollPos = obj.delta.y;
+
+  if (scrollPos == 0) {
+    menuContainer.style.top = '0vh';
+  } else {
+    var menuPos = parseInt(scrollPos.map(0, scrollLimit, 15, 100));
+    menuContainer.style.top = "calc(".concat(menuPos, "vh - 120px)");
+  }
 });
 var navBtn = document.querySelectorAll('nav button');
 navBtn.forEach(function (item) {
@@ -41798,7 +41823,18 @@ navBtn.forEach(function (item) {
   });
 });
 document.querySelector('#work-web-projects').addEventListener('click', function (event) {
-  document.querySelector('.the-section--work .section--horizontal-scroll-sections').classList += ' scrolled-to-right';
+  document.querySelector('.the-section--work .section--horizontal-scroll-sections').classList.add('scrolled-to-right');
+  scroll.scrollTo(document.querySelector('.the-section--work-web-projects'));
+});
+document.querySelector('#music-projects').addEventListener('click', function (event) {
+  document.querySelector('.the-section--work .section--horizontal-scroll-sections').classList.add('scrolled-to-left');
+  scroll.scrollTo(document.querySelector('.the-section--work-web-projects'));
+});
+document.querySelector('.work-go-back').addEventListener('click', function (event) {
+  document.querySelector('.the-section--work .section--horizontal-scroll-sections').classList.remove('scrolled-to-right');
+});
+document.querySelector('.music-go-forward').addEventListener('click', function (event) {
+  document.querySelector('.the-section--work .section--horizontal-scroll-sections').classList.remove('scrolled-to-left');
 }); // 3D landing
 
 var scene = new THREE.Scene();
@@ -42017,7 +42053,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49799" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53154" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

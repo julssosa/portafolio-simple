@@ -1,11 +1,16 @@
 .menu-moving {
     position: fixed;
-    right: 60px;
-    top: 30px;
+    right: 0;
+    top: 0;
     z-index: 20;
 
     ul {
         text-align: right;
+        top: 0;
+        width: max-content;        
+        position: absolute;
+        right: 30px;
+        transition: 1.25s all ease-out;
     }
 
 }
@@ -20,9 +25,19 @@
     }
 
     &--go-up {
-        > div {
-            line-height: 0.4;
-            font-weight: bold;
+        opacity: 1;
+        transform: translateY(0);
+        transition: 0.75s all ease-in-out;
+        &.hidden {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: 0.75s all ease-in-out;
         }
+        img {
+            width: 20px;
+            height: auto;
+            transform: rotate(90deg);
+        }
+        
     }
 }
