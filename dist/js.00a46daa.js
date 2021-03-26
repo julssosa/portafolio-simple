@@ -41791,8 +41791,15 @@ Number.prototype.map = function (in_min, in_max, out_min, out_max) {
 var scroll = new _locomotiveScroll.default({
   el: document.querySelector('[data-scroll-container]'),
   smooth: true,
-  scrollFromAnywhere: true,
-  getDirection: true
+  // scrollFromAnywhere: true,
+  getDirection: true,
+  reloadOnContextChange: true,
+  tablet: {
+    smooth: true
+  },
+  smartphone: {
+    smooth: true
+  }
 });
 var menuContainer = document.getElementById('menu-fixed');
 var scrollLimit = 0;
@@ -41802,17 +41809,19 @@ scroll.on('call', function (obj) {
   }
 });
 scroll.on('scroll', function (obj) {
-  if (scrollLimit == 0) {
-    scrollLimit = obj.limit.y;
-  }
+  if (window.innerWidth > 992) {
+    if (scrollLimit == 0) {
+      scrollLimit = obj.limit.y;
+    }
 
-  var scrollPos = obj.delta.y;
+    var scrollPos = obj.scroll.y;
 
-  if (scrollPos == 0) {
-    menuContainer.style.top = '0vh';
-  } else {
-    var menuPos = parseInt(scrollPos.map(0, scrollLimit, 15, 100));
-    menuContainer.style.top = "calc(".concat(menuPos, "vh - 120px)");
+    if (scrollPos == 0) {
+      menuContainer.style.top = '0vh';
+    } else {
+      var menuPos = parseInt(scrollPos.map(0, scrollLimit, 15, 100));
+      menuContainer.style.top = "calc(".concat(menuPos, "vh - 120px)");
+    }
   }
 });
 var navBtn = document.querySelectorAll('nav button');
@@ -41824,17 +41833,27 @@ navBtn.forEach(function (item) {
 });
 document.querySelector('#work-web-projects').addEventListener('click', function (event) {
   document.querySelector('.the-section--work .section--horizontal-scroll-sections').classList.add('scrolled-to-right');
-  scroll.scrollTo(document.querySelector('.the-section--work-web-projects'));
+  scroll.scrollTo(document.querySelector('.the-section--work--main'));
 });
 document.querySelector('#music-projects').addEventListener('click', function (event) {
   document.querySelector('.the-section--work .section--horizontal-scroll-sections').classList.add('scrolled-to-left');
-  scroll.scrollTo(document.querySelector('.the-section--work-web-projects'));
+  scroll.scrollTo(document.querySelector('.the-section--work--main'));
 });
 document.querySelector('.work-go-back').addEventListener('click', function (event) {
   document.querySelector('.the-section--work .section--horizontal-scroll-sections').classList.remove('scrolled-to-right');
 });
 document.querySelector('.music-go-forward').addEventListener('click', function (event) {
   document.querySelector('.the-section--work .section--horizontal-scroll-sections').classList.remove('scrolled-to-left');
+});
+document.querySelector('.responsive-hamburger').addEventListener('click', function (event) {
+  document.getElementById('menu-fixed').classList.toggle('menu-active');
+  document.querySelector('.responsive-hamburger').classList.toggle('hamburger-light');
+});
+document.querySelectorAll('#menu-fixed button').forEach(function (responsiveNavButton) {
+  responsiveNavButton.addEventListener('click', function (event) {
+    document.getElementById('menu-fixed').classList.remove('menu-active');
+    document.querySelector('.responsive-hamburger').classList.remove('hamburger-light');
+  });
 }); // 3D landing
 
 var scene = new THREE.Scene();
@@ -42022,8 +42041,7 @@ particlesJS("particles-js", {
     }
   },
   "retina_detect": true
-}, function () {
-  console.log('particles loaded');
+}, function () {// console.log('particles loaded');
 });
 },{"locomotive-scroll":"../node_modules/locomotive-scroll/dist/locomotive-scroll.esm.js","three":"../node_modules/three/build/three.module.js","./scripts/particles.js":"js/scripts/particles.js","../sass/style.scss":"sass/style.scss"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -42053,7 +42071,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53154" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50346" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

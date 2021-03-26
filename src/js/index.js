@@ -19,8 +19,15 @@ Number.prototype.map = function (in_min, in_max, out_min, out_max) {
 const scroll = new LocomotiveScroll({
   el: document.querySelector('[data-scroll-container]'),
   smooth: true,
-  scrollFromAnywhere: true,
+ // scrollFromAnywhere: true,
   getDirection: true,
+  reloadOnContextChange: true,
+  tablet: {
+    smooth: true
+  },
+  smartphone: {
+    smooth: true
+  }
 });
 
 
@@ -34,18 +41,24 @@ scroll.on('call', (obj) => {
 })
 
 
+
 scroll.on('scroll', (obj) => {
-  if (scrollLimit == 0) {
-    scrollLimit = obj.limit.y;
+
+  if (window.innerWidth > 992) {
+    if (scrollLimit == 0) {
+      scrollLimit = obj.limit.y;
+    }
+    let scrollPos = obj.scroll.y;
+    if (scrollPos == 0) {
+      menuContainer.style.top = '0vh';
+    } else {
+      let menuPos = parseInt(scrollPos.map(0, scrollLimit, 15, 100));
+      menuContainer.style.top = `calc(${menuPos}vh - 120px)`;
+    }
   }
 
-  let scrollPos = obj.delta.y;
-  if (scrollPos == 0) {
-    menuContainer.style.top = '0vh';
-  } else {
-    let menuPos = parseInt(scrollPos.map(0, scrollLimit, 15, 100));
-    menuContainer.style.top = `calc(${menuPos}vh - 120px)`;
-  }
+  
+  
 });
 
 
@@ -61,12 +74,12 @@ navBtn.forEach(item => {
 
 document.querySelector('#work-web-projects').addEventListener('click', event => {
   document.querySelector('.the-section--work .section--horizontal-scroll-sections').classList.add('scrolled-to-right');
-  scroll.scrollTo(document.querySelector('.the-section--work-web-projects'));
+ scroll.scrollTo(document.querySelector('.the-section--work--main'));
 })
 
 document.querySelector('#music-projects').addEventListener('click', event => {
   document.querySelector('.the-section--work .section--horizontal-scroll-sections').classList.add('scrolled-to-left');
-  scroll.scrollTo(document.querySelector('.the-section--work-web-projects'));
+ scroll.scrollTo(document.querySelector('.the-section--work--main'));
 })
 
 document.querySelector('.work-go-back').addEventListener('click', event => {
@@ -77,6 +90,17 @@ document.querySelector('.music-go-forward').addEventListener('click', event => {
   document.querySelector('.the-section--work .section--horizontal-scroll-sections').classList.remove('scrolled-to-left');
 });
 
+document.querySelector('.responsive-hamburger').addEventListener('click', event => {
+  document.getElementById('menu-fixed').classList.toggle('menu-active');
+  document.querySelector('.responsive-hamburger').classList.toggle('hamburger-light');
+});
+
+document.querySelectorAll('#menu-fixed button').forEach(responsiveNavButton => {
+  responsiveNavButton.addEventListener('click', event => {
+    document.getElementById('menu-fixed').classList.remove('menu-active');
+    document.querySelector('.responsive-hamburger').classList.remove('hamburger-light');
+  })
+});
 
 
 
@@ -295,5 +319,5 @@ particlesJS("particles-js", {
   },
   "retina_detect": true
 }, function () {
-  console.log('particles loaded');
+  // console.log('particles loaded');
 });
