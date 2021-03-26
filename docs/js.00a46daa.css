@@ -807,7 +807,7 @@ button {
       top: 0;
       opacity: 0;
       animation: animate 5s ease-in-out;
-      background-image: url(/me-machines.f334a221.png);
+      background-image: url(me-machines.f334a221.png);
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -935,7 +935,7 @@ button {
       left: -10%;
       top: -100px;
       opacity: 0;
-      background-image: url("/rauschenberg.bc9c460f.jpg");
+      background-image: url("rauschenberg.bc9c460f.jpg");
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
@@ -960,7 +960,7 @@ button {
       left: 40%;
       bottom: -50%;
       opacity: 0;
-      background-image: url("/me-dj.856b66fd.gif");
+      background-image: url("me-dj.856b66fd.gif");
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
