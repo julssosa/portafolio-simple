@@ -592,7 +592,7 @@ button {
   position: fixed;
   left: 30px;
   top: 30px;
-  z-index: 20; }
+  z-index: 300; }
 
 .nav--go-up {
   opacity: 1;
@@ -807,7 +807,7 @@ button {
       top: 0;
       opacity: 0;
       animation: animate 5s ease-in-out;
-      background-image: url(me-machines.f334a221.png);
+      background-image: url(/me-machines.f334a221.png);
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -935,7 +935,7 @@ button {
       left: -10%;
       top: -100px;
       opacity: 0;
-      background-image: url("rauschenberg.bc9c460f.jpg");
+      background-image: url("/rauschenberg.bc9c460f.jpg");
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
@@ -960,7 +960,7 @@ button {
       left: 40%;
       bottom: -50%;
       opacity: 0;
-      background-image: url("me-dj.856b66fd.gif");
+      background-image: url("/me-dj.856b66fd.gif");
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -1014,24 +1014,26 @@ button {
   .the-section--work-web-projects .work-go-back img {
     width: 60px;
     height: auto; }
-  .the-section--work-web-projects .section--content-container h2 {
-    font-weight: 200; }
-  .the-section--work-web-projects .section--content-container > div {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 45px; }
-    .the-section--work-web-projects .section--content-container > div h4 {
-      flex-basis: 100%;
-      font-size: 24px;
+  .the-section--work-web-projects .section--content-container {
+    padding-top: 90px; }
+    .the-section--work-web-projects .section--content-container h2 {
       font-weight: 200; }
-      .the-section--work-web-projects .section--content-container > div h4 strong {
-        font-weight: 900; }
-    .the-section--work-web-projects .section--content-container > div a {
-      padding-right: 30px; }
-      .the-section--work-web-projects .section--content-container > div a p {
-        margin: 0;
-        font-size: 18px;
-        font-weight: 600; }
+    .the-section--work-web-projects .section--content-container > div {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 45px; }
+      .the-section--work-web-projects .section--content-container > div h4 {
+        flex-basis: 100%;
+        font-size: 24px;
+        font-weight: 200; }
+        .the-section--work-web-projects .section--content-container > div h4 strong {
+          font-weight: 900; }
+      .the-section--work-web-projects .section--content-container > div a {
+        padding-right: 30px; }
+        .the-section--work-web-projects .section--content-container > div a p {
+          margin: 0;
+          font-size: 18px;
+          font-weight: 600; }
   .the-section--work-web-projects .section--background-container .ellipse {
     background: #FFFFFF;
     position: absolute;
