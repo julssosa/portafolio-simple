@@ -12,6 +12,12 @@
         right: 30px;
         transition: 1.25s all ease-out;
         z-index: 30;
+
+        > li {
+            &:hover {
+                opacity: 0.5;
+            }
+        }
     }
 
     .responsive-hamburger {
