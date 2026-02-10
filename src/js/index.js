@@ -1,7 +1,3 @@
-//import { bro } from './scripts/bro';
-
-//document.querySelector(".header h1").textContent = bro("Wasssup");
-
 import LocomotiveScroll from 'locomotive-scroll';
 
 import * as THREE from 'three';

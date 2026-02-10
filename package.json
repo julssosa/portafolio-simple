@@ -27,7 +27,6 @@
     "parcel-plugin-json-url-loader": "^0.1.2"
   },
   "dependencies": {
-    "bro": "0.0.3",
     "gsap": "^3.6.0",
     "js": "^0.1.0",
     "locomotive-scroll": "^4.0.6",
