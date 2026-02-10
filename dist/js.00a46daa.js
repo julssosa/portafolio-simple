@@ -41782,8 +41782,6 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//import { bro } from './scripts/bro';
-//document.querySelector(".header h1").textContent = bro("Wasssup");
 Number.prototype.map = function (in_min, in_max, out_min, out_max) {
   return (this - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 };
@@ -42071,7 +42069,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52246" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53522" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
