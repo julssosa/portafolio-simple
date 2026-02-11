@@ -41832,11 +41832,11 @@ navBtn.forEach(function (item) {
 document.querySelector('#work-web-projects').addEventListener('click', function (event) {
   document.querySelector('.the-section--work .section--horizontal-scroll-sections').classList.add('scrolled-to-right');
   scroll.scrollTo(document.querySelector('.the-section--work--main'));
-});
-document.querySelector('#music-projects').addEventListener('click', function (event) {
-  document.querySelector('.the-section--work .section--horizontal-scroll-sections').classList.add('scrolled-to-left');
-  scroll.scrollTo(document.querySelector('.the-section--work--main'));
-});
+}); // document.querySelector('#music-projects').addEventListener('click', event => {
+//   document.querySelector('.the-section--work .section--horizontal-scroll-sections').classList.add('scrolled-to-left');
+//  scroll.scrollTo(document.querySelector('.the-section--work--main'));
+// })
+
 document.querySelector('.work-go-back').addEventListener('click', function (event) {
   document.querySelector('.the-section--work .section--horizontal-scroll-sections').classList.remove('scrolled-to-right');
 });
@@ -42069,7 +42069,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53522" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57657" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

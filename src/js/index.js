@@ -73,10 +73,10 @@ document.querySelector('#work-web-projects').addEventListener('click', event => 
  scroll.scrollTo(document.querySelector('.the-section--work--main'));
 })
 
-document.querySelector('#music-projects').addEventListener('click', event => {
-  document.querySelector('.the-section--work .section--horizontal-scroll-sections').classList.add('scrolled-to-left');
- scroll.scrollTo(document.querySelector('.the-section--work--main'));
-})
+// document.querySelector('#music-projects').addEventListener('click', event => {
+//   document.querySelector('.the-section--work .section--horizontal-scroll-sections').classList.add('scrolled-to-left');
+//  scroll.scrollTo(document.querySelector('.the-section--work--main'));
+// })
 
 document.querySelector('.work-go-back').addEventListener('click', event => {
   document.querySelector('.the-section--work .section--horizontal-scroll-sections').classList.remove('scrolled-to-right');
